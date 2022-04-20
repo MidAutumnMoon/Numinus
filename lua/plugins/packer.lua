@@ -39,9 +39,6 @@ require 'packer'.startup( function()
   use  { 'lukas-reineke/indent-blankline.nvim',
          config = [[ require 'configs/indent-blankline' ]] }
 
-  use { 'ntpeters/vim-better-whitespace', disable = true,
-        setup = [[ require 'configs/whitespace' ]] }
-
   use { 'Pocco81/AutoSave.nvim',
         event = 'VimEnter',
         config = [[ require 'configs/autosave' ]] }
@@ -62,6 +59,16 @@ require 'packer'.startup( function()
   use { 'lewis6991/gitsigns.nvim',
         event = 'VimEnter',
         config = [[ require 'configs/gitsigns' ]] }
+
+
+
+  -- Navigating
+
+  use { 'unblevable/quick-scope',
+        config = [[ require 'configs/quick-scope' ]] }
+
+  use { 'phaazon/hop.nvim',
+        config = [[ require 'configs/hop' ]] }
 
 
 
