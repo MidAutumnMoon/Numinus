@@ -89,6 +89,30 @@ require 'packer'.startup( function()
   use { 'benknoble/vim-racket',
         ft = { 'racket' } }
 
+  -- remove when got treesitter to work
+  use { 'LnL7/vim-nix',
+        ft = 'nix' }
+
+
+
+  -- Cmp
+
+  use { 'hrsh7th/nvim-cmp',
+        event = 'InsertEnter',
+        config = [[ require 'configs/cmp/cmp' ]] }
+
+  use { 'hrsh7th/cmp-buffer',
+        module = 'cmp_buffer' }
+
+  use { 'hrsh7th/cmp-path',
+        module = 'cmp_path' }
+
+  use { 'hrsh7th/cmp-nvim-lsp',
+        module = 'cmp_nvim_lsp' }
+
+  use { 'neovim/nvim-lspconfig',
+        after = 'nvim-cmp' }
+
 
 
   -- Treesitter
@@ -96,10 +120,6 @@ require 'packer'.startup( function()
   -- TODO: need a custim Neovim wrapper
   -- use { 'nvim-treesitter/nvim-treesitter',
   --       config = [[  require 'configs/treesitter' ]] }
-
-
-
-  -- Coc
 
 
 

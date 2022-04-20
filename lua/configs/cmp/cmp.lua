@@ -1,0 +1,73 @@
+local cmp = require 'cmp'
+local cmp_buffer = require 'cmp_buffer'
+
+local utils = require 'configs/cmp/utils'
+
+
+cmp.setup {
+
+
+  --
+  -- Source
+  --
+
+  sources = {
+    { name = 'path' },
+    { name = 'nvim_lsp' },
+
+    -- cmp_buffer with completion from all buffers
+    { name = 'buffer',
+      option = {
+        get_bufnrs = function()
+            return vim.api.nvim_list_bufs()
+          end
+      } },
+  },
+
+
+  --
+  -- Mappings
+  --
+
+  mapping = {
+
+    ['<Tab>'] = cmp.mapping( function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        elseif utils.has_word_before() then
+          cmp.abort()
+        else
+          fallback()
+        end
+      end, { 'i', 's' } ),
+
+    ['<S-Tab>'] = cmp.mapping( function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        else
+          fallback()
+        end
+      end, { 'i', 's' } ),
+
+  },
+
+
+  --
+  -- Sorting
+  --
+
+  sorting = {
+    comparators = {
+      ( function(...) return cmp_buffer:compare_locality(...) end ),
+    }
+  },
+
+
+}
+
+
+--
+-- Do LSP
+--
+
+require 'configs/cmp/lsp'
