@@ -40,7 +40,7 @@ set hlsearch incsearch
 set ignorecase smartcase
 set laststatus=2
 set list
-set listchars=tab:\|\ ,
+set listchars=tab:>-,nbsp:␣
 set scrolloff=5
 set showcmd showmatch
 set showbreak="↳ "
