@@ -59,6 +59,11 @@ require 'packer'.startup( function()
         event = 'VimEnter',
         config = [[ require 'configs/matchup' ]] }
 
+  use { 'lewis6991/gitsigns.nvim',
+        event = 'VimEnter',
+        config = [[ require 'configs/gitsigns' ]] }
+
+
 
   -- Languages
 

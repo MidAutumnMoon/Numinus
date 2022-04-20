@@ -203,10 +203,10 @@ endfunction
 
 " ...of other plugins... {{{
 
-  " signify
-  call s:hil( 'SignifySignAdd',    { 'fg': s:green } )
-  call s:hil( 'SignifySignChange', { 'fg': s:yellow } )
-  call s:hil( 'SignifySignDelete', { 'fg': s:red } )
+  " gitsigns
+  call s:hil( 'GitSignsAdd',    { 'fg': s:green } )
+  call s:hil( 'GitSignsChange', { 'fg': s:yellow } )
+  call s:hil( 'GitSignsDelete', { 'fg': s:red } )
 
   " indent_blankline
   call s:hil( 'IndentBlanklineChar',         { 'fg': s:grey_cursor } )
