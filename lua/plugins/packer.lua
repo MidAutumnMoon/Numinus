@@ -70,6 +70,11 @@ require 'packer'.startup( function()
   use { 'phaazon/hop.nvim',
         config = [[ require 'configs/hop' ]] }
 
+  use { 'nvim-telescope/telescope.nvim',
+        requires = 'nvim-lua/plenary.nvim',
+        event = 'VimEnter',
+        config = [[ require 'configs/telescope' ]] }
+
 
 
   -- Languages
@@ -100,6 +105,7 @@ require 'packer'.startup( function()
 
   -- Misc things
 
+  use 'nvim-lua/plenary.nvim'
 
 
 
