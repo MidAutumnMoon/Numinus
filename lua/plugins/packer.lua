@@ -12,11 +12,15 @@ require 'packer'.startup( function()
 
   -- Editing
 
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-endwise'
   use 'tpope/vim-repeat'
   use 'tommcdo/vim-exchange'
   use 'wellle/targets.vim'
+
+  use { 'tpope/vim-endwise',
+        event = { 'CursorMoved', 'CursorMovedI', 'ModeChanged' } }
+
+  use { 'tpope/vim-commentary',
+        keys = { 'gc', 'gcc' } }
 
   use { 'junegunn/vim-after-object',
         event = 'VimEnter',
@@ -27,20 +31,24 @@ require 'packer'.startup( function()
         config = [[ require 'configs/easy-align' ]] }
 
   use { 'qpkorr/vim-bufkill',
+        event = 'BufWinEnter',
         config = [[ require 'configs/bufkill' ]] }
 
   use { 'machakann/vim-sandwich',
+        keys = { 'sr', 'sd', 'sa' },
+        event = { 'CursorMoved', 'CursorHold' },
         config = [[ require 'configs/sandwich' ]] }
 
 
 
   -- QoLI
 
-  use  { 'lukas-reineke/indent-blankline.nvim',
-         config = [[ require 'configs/indent-blankline' ]] }
+  use { 'lukas-reineke/indent-blankline.nvim',
+        event = { 'CursorHold', 'CursorMoved' },
+        config = [[ require 'configs/indent-blankline' ]] }
 
   use { 'Pocco81/AutoSave.nvim',
-        event = 'VimEnter',
+        event = { 'InsertEnter', 'CursorMoved' },
         config = [[ require 'configs/autosave' ]] }
 
   use { 'nathom/filetype.nvim',
@@ -50,15 +58,20 @@ require 'packer'.startup( function()
         config = [[ require 'configs/rooter' ]] }
 
   use { 'junegunn/vim-slash',
+        keys = { '/' },
         config = [[ require 'configs/slash' ]] }
 
   use { 'andymass/vim-matchup',
-        event = 'VimEnter',
+        event = { 'CursorHold', 'CursorMoved' },
         config = [[ require 'configs/matchup' ]] }
 
   use { 'lewis6991/gitsigns.nvim',
-        event = 'VimEnter',
+        event = { 'CursorHold' },
         config = [[ require 'configs/gitsigns' ]] }
+
+  use { 'windwp/nvim-autopairs',
+        event = { 'InsertEnter' },
+        config = [[ require 'configs/autopairs' ]] }
 
 
 
@@ -68,11 +81,12 @@ require 'packer'.startup( function()
         config = [[ require 'configs/quick-scope' ]] }
 
   use { 'phaazon/hop.nvim',
+        event = { 'CursorMoved', 'CursorHold' },
         config = [[ require 'configs/hop' ]] }
 
   use { 'nvim-telescope/telescope.nvim',
         requires = 'nvim-lua/plenary.nvim',
-        event = 'VimEnter',
+        event = { 'CursorHold', 'CursorMoved' },
         config = [[ require 'configs/telescope' ]] }
 
 
@@ -94,7 +108,7 @@ require 'packer'.startup( function()
   -- Cmp
 
   use { 'hrsh7th/nvim-cmp',
-        event = 'InsertEnter',
+        event = { 'InsertEnter', 'CursorHold', 'CursorMoved' },
         config = [[ require 'configs/cmp/cmp' ]] }
 
   use { 'hrsh7th/cmp-buffer',
@@ -115,6 +129,8 @@ require 'packer'.startup( function()
 
   use { 'nvim-treesitter/nvim-treesitter',
         config = [[  require 'configs/treesitter' ]] }
+
+  use { 'p00f/nvim-ts-rainbow' }
 
 
 

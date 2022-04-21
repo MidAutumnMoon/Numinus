@@ -9,7 +9,15 @@ local full_caps =
 -- Servers
 --
 
+local lspconfig = require 'lspconfig'
+
 local lsp_servers = {
+}
+
+lspconfig['rnix'].setup {
+
+  capabilities = full_caps
+
 }
 
 

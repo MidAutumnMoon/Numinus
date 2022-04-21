@@ -6,7 +6,6 @@ local utils = require 'configs/cmp/utils'
 
 cmp.setup {
 
-
   --
   -- Source
   --
@@ -31,7 +30,10 @@ cmp.setup {
 
   mapping = {
 
-    ['<Tab>'] = cmp.mapping( function(fallback)
+    -- Tabs
+
+    ['<Tab>'] = cmp.mapping(
+      function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
         elseif utils.has_word_before() then
@@ -41,7 +43,8 @@ cmp.setup {
         end
       end, { 'i', 's' } ),
 
-    ['<S-Tab>'] = cmp.mapping( function(fallback)
+    ['<S-Tab>'] = cmp.mapping(
+      function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
         else
@@ -62,12 +65,9 @@ cmp.setup {
     }
   },
 
-
 }
 
 
---
--- Do LSP
---
 
 require 'configs/cmp/lsp'
+require 'configs/cmp/autopairs'
