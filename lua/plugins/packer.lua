@@ -16,9 +16,6 @@ require 'packer'.startup( function()
   use 'tommcdo/vim-exchange'
   use 'wellle/targets.vim'
 
-  use { 'tpope/vim-endwise',
-        event = { 'CursorMoved', 'CursorMovedI', 'ModeChanged' } }
-
   use { 'tpope/vim-commentary',
         keys = { 'gc', 'gcc' } }
 
@@ -123,6 +120,9 @@ require 'packer'.startup( function()
   use { 'neovim/nvim-lspconfig',
         after = 'nvim-cmp' }
 
+  use { 'hrsh7th/cmp-nvim-lua',
+        after = 'nvim-cmp' }
+
 
 
   -- Treesitter
@@ -131,6 +131,8 @@ require 'packer'.startup( function()
         config = [[  require 'configs/treesitter' ]] }
 
   use { 'p00f/nvim-ts-rainbow' }
+
+  use { 'RRethy/nvim-treesitter-endwise' }
 
 
 

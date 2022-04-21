@@ -42,6 +42,10 @@ require 'nvim-treesitter.configs'.setup {
 
   rainbow = {
     enable = true,
+  },
+
+  endwise = {
+    enable = true,
   }
 
 }

@@ -12,6 +12,7 @@ cmp.setup {
 
   sources = {
     { name = 'path' },
+    { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
 
     -- cmp_buffer with completion from all buffers
@@ -37,7 +38,7 @@ cmp.setup {
         if cmp.visible() then
           cmp.select_next_item()
         elseif utils.has_word_before() then
-          cmp.abort()
+          cmp.complete()
         else
           fallback()
         end
@@ -52,6 +53,10 @@ cmp.setup {
         end
       end, { 'i', 's' } ),
 
+      -- Others
+
+      ['<C-e>'] = cmp.mapping.abort(),
+
   },
 
 
@@ -62,12 +67,13 @@ cmp.setup {
   sorting = {
     comparators = {
       ( function(...) return cmp_buffer:compare_locality(...) end ),
-    }
+    },
   },
 
 }
 
 
-
 require 'configs/cmp/lsp'
+require 'configs/cmp/cmdline'
+
 require 'configs/cmp/autopairs'

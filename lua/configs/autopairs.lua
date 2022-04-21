@@ -12,7 +12,10 @@ autopairs.setup {
 
     -- parinfer will take care of brackets
     'racket', 'lisp', 'scheme',
-  }
+  },
+
+  map_c_h = true,
+  map_c_w = true,
 
 }
 
@@ -33,7 +36,7 @@ autopairs.add_rules {
       :with_move(function(opts)
           return opts.prev_char:match('.%)') ~= nil
       end)
-      :use_key( ')'),
+      :use_key( ')' ),
 
   Rule( '{ ', ' }' )
       :with_pair(function() return false end)
