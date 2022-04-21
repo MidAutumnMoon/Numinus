@@ -16,7 +16,12 @@ local disabled_plugins = {
   'logipat',
   'rrhelper',
   'spellfile_plugin',
-  'matchit'
+  'matchit',
+  'matchparen',
+  'man',
+  'tutor_mode_plugin',
+  'remote_plugins',
+  'shada_plugin'
 }
 
 
