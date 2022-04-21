@@ -20,7 +20,6 @@ require 'packer'.startup( function()
         keys = { 'gc', 'gcc' } }
 
   use { 'junegunn/vim-after-object',
-        event = 'VimEnter',
         config = [[ require 'configs/after-object' ]] }
 
   use { 'junegunn/vim-easy-align',
