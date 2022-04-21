@@ -1,6 +1,21 @@
 require 'nvim-treesitter.configs'.setup {
 
-  --ensure_installed = 'all',
+  ensure_installed = {
+    'lua',
+    'nix',
+    'vim',
+
+    'erlang',
+    'bash',
+
+    'commonlisp',
+    'scheme',
+
+    'yaml',
+    'toml',
+    'json',
+    'json5',
+  },
 
   ignore_install = {
     -- Parser for Elixir is extremely slow to load,
@@ -15,6 +30,10 @@ require 'nvim-treesitter.configs'.setup {
 
   incremental_selection = {
     enable = true,
+  },
+
+  textobjects = {
+    enable = true
   },
 
   matchup = {

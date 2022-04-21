@@ -12,6 +12,7 @@ let s:filetypes_blacklist = [
       \ ]
 
 
+
 " Section: Whitespace matching setup
 
 " Define custom whitespace character group to include all horizontal unicode
@@ -93,7 +94,7 @@ function! <SID>SetupAutoCommands()
       autocmd InsertLeave,BufReadPost * call <SID>HighlightEOLWhitespace()
 
       " Using syntax: clear whitespace highlighting when leaving buffer
-      autocmd BufWinLeave * if expand("<afile>") == expand("%") | call <SID>ClearHighlighting() | endif
+      autocmd BufWinLeave * if expand( "<afile>" ) == expand( "%" ) | call <SID>ClearHighlighting() | endif
 
       " Do not highlight whitespace on current line in insert mode
       autocmd CursorMoved,CursorMovedI,InsertEnter * call <SID>HighlightEOLWhitespaceExceptCurrentLine()
