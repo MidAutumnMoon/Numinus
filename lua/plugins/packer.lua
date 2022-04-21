@@ -54,7 +54,7 @@ require 'packer'.startup( function()
         config = [[ require 'configs/rooter' ]] }
 
   use { 'junegunn/vim-slash',
-        keys = { '/' },
+        keys = { '/', '*' },
         config = [[ require 'configs/slash' ]] }
 
   use { 'andymass/vim-matchup',

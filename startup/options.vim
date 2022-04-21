@@ -44,7 +44,7 @@ set listchars=tab:>-,nbsp:␣
 set scrolloff=5
 set showcmd showmatch
 set showbreak="↳ "
-set virtualedit=block,onemore
+set virtualedit=block
 set whichwrap=b,s
 set wildmenu
 set signcolumn=yes:1
