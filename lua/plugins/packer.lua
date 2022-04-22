@@ -27,12 +27,8 @@ require 'packer'.startup( function()
         keys = { 'ga' },
         config = [[ require 'configs/easy-align' ]] }
 
-  use { 'qpkorr/vim-bufkill',
-        event = 'BufWinEnter',
-        config = [[ require 'configs/bufkill' ]] }
-
   use { 'machakann/vim-sandwich',
-        keys = { 'sa', 'sr', 'sd' },
+        event = { 'CursorMoved', 'CursorHold' },
         config = [[ require 'configs/sandwich' ]] }
 
 
@@ -69,6 +65,9 @@ require 'packer'.startup( function()
   use { 'windwp/nvim-autopairs',
         event = { 'InsertEnter' },
         config = [[ require 'configs/autopairs' ]] }
+
+  use { 'qpkorr/vim-bufkill',
+        config = [[ require 'configs/bufkill' ]] }
 
 
 
@@ -108,19 +107,19 @@ require 'packer'.startup( function()
         config = [[ require 'configs/cmp/cmp' ]] }
 
   use { 'hrsh7th/cmp-buffer',
-        module = 'cmp_' }
+        after = 'nvim-cmp' }
 
   use { 'hrsh7th/cmp-path',
-        module = 'cmp_' }
+        after = 'nvim-cmp' }
 
   use { 'hrsh7th/cmp-nvim-lua',
-        module = 'cmp_' }
+        after = 'nvim-cmp' }
 
   use { 'hrsh7th/cmp-nvim-lsp',
-        module = 'cmp_' }
+        after = 'nvim-cmp' }
 
   use { 'neovim/nvim-lspconfig',
-        module = 'lspconfig' }
+        after = 'nvim-cmp' }
 
 
 
