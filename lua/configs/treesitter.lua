@@ -6,7 +6,10 @@ require 'nvim-treesitter.configs'.setup {
     'vim',
 
     'erlang',
+    'rust',
+
     'bash',
+    'fish',
 
     'commonlisp',
     'scheme',
