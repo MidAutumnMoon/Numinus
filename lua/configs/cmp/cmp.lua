@@ -59,17 +59,6 @@ cmp.setup {
 
   },
 
-
-  --
-  -- Sorting
-  --
-
-  sorting = {
-    comparators = {
-      ( function(...) return cmp_buffer:compare_locality(...) end ),
-    },
-  },
-
 }
 
 
