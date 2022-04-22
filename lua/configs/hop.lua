@@ -39,7 +39,7 @@ vim.api.nvim_create_user_command( 'HopChar1CurrentLineACinc',
 
 vim.cmd [[
 
-  " Co-op with quick-scope
+  " Leverage f/F and co-op with quick-scope
 
   vmap <silent> f <CMD>HopChar1CurrentLineACinc<CR>
   vmap <silent> F <CMD>HopChar1CurrentLineBC<CR>
@@ -49,6 +49,8 @@ vim.cmd [[
 
   nmap <silent> t <CMD>HopChar1CurrentLineAC<CR>
   nmap <silent> T <CMD>HopChar1CurrentLineBC<CR>
+
+  nmap <silent> <M-s> <CMD>HopChar1CurrentLine<CR>
 
 
   " Mimic the familiar Easymotion keymaps
