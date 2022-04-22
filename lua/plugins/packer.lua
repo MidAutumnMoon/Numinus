@@ -20,6 +20,7 @@ require 'packer'.startup( function()
         keys = { 'gc', 'gcc' } }
 
   use { 'junegunn/vim-after-object',
+        keys = 'a',
         config = [[ require 'configs/after-object' ]] }
 
   use { 'junegunn/vim-easy-align',
@@ -31,8 +32,7 @@ require 'packer'.startup( function()
         config = [[ require 'configs/bufkill' ]] }
 
   use { 'machakann/vim-sandwich',
-        keys = { 'sr', 'sd', 'sa' },
-        event = { 'CursorMoved', 'CursorHold' },
+        keys = { 'sa', 'sr', 'sd' },
         config = [[ require 'configs/sandwich' ]] }
 
 
@@ -51,6 +51,7 @@ require 'packer'.startup( function()
         config = [[ require 'configs/filetype' ]] }
 
   use { 'airblade/vim-rooter',
+        event = 'VimEnter',
         config = [[ require 'configs/rooter' ]] }
 
   use { 'junegunn/vim-slash',
@@ -62,7 +63,7 @@ require 'packer'.startup( function()
         config = [[ require 'configs/matchup' ]] }
 
   use { 'lewis6991/gitsigns.nvim',
-        event = { 'CursorHold' },
+        event = { 'CursorHold', 'CursorMoved' },
         config = [[ require 'configs/gitsigns' ]] }
 
   use { 'windwp/nvim-autopairs',
@@ -81,7 +82,6 @@ require 'packer'.startup( function()
         config = [[ require 'configs/hop' ]] }
 
   use { 'nvim-telescope/telescope.nvim',
-        requires = 'nvim-lua/plenary.nvim',
         event = { 'CursorHold', 'CursorMoved' },
         config = [[ require 'configs/telescope' ]] }
 
@@ -108,30 +108,30 @@ require 'packer'.startup( function()
         config = [[ require 'configs/cmp/cmp' ]] }
 
   use { 'hrsh7th/cmp-buffer',
-        after = 'nvim-cmp' }
+        module = 'cmp_' }
 
   use { 'hrsh7th/cmp-path',
-        after = 'nvim-cmp' }
-
-  use { 'hrsh7th/cmp-nvim-lsp',
-        after = 'nvim-cmp' }
-
-  use { 'neovim/nvim-lspconfig',
-        after = 'nvim-cmp' }
+        module = 'cmp_' }
 
   use { 'hrsh7th/cmp-nvim-lua',
-        after = 'nvim-cmp' }
+        module = 'cmp_' }
+
+  use { 'hrsh7th/cmp-nvim-lsp',
+        module = 'cmp_' }
+
+  use { 'neovim/nvim-lspconfig',
+        module = 'lspconfig' }
 
 
 
   -- Treesitter
 
   use { 'nvim-treesitter/nvim-treesitter',
-        config = [[  require 'configs/treesitter' ]] }
+        config = [[ require 'configs/treesitter' ]] }
 
-  use { 'p00f/nvim-ts-rainbow' }
+  use 'p00f/nvim-ts-rainbow'
 
-  use { 'RRethy/nvim-treesitter-endwise' }
+  use 'RRethy/nvim-treesitter-endwise'
 
 
 
@@ -149,9 +149,6 @@ end )
 
 
 vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost packer.lua source <afile> | PackerSync
-  augroup end
+  command! P :PackerSync
 ]]
 

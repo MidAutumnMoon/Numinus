@@ -76,4 +76,3 @@ cmp.setup {
 require 'configs/cmp/lsp'
 require 'configs/cmp/cmdline'
 
-require 'configs/cmp/autopairs'
