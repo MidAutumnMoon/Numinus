@@ -12,7 +12,8 @@ local updated_cap =
 local lspconfig = require 'lspconfig'
 
 local lsp_servers = {
-  'rnix'
+  'rnix',
+  'rust_analyzer'
 }
 
 
