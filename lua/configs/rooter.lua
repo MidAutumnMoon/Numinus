@@ -14,13 +14,11 @@ vim.cmd [[
         \ 'Makefile'
         \ ]
 
-
   " Git
 
   let g:rooter_patterns += [
         \ '.git', '.gitignore'
         \ ]
-
 
   " Nix
 
@@ -28,13 +26,17 @@ vim.cmd [[
         \ 'default.nix', 'machine.nix'
         \ ]
 
-
   " Arch!
 
   let g:rooter_patterns += [
         \ 'PKGBUILD'
         \ ]
 
+  " Rust
+
+  let g:rooter_patterns += [
+        \ 'Cargo.toml'
+        \ ]
 
   " Misc
 
