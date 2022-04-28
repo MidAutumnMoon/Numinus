@@ -36,7 +36,7 @@ cmp.setup {
     ['<Tab>'] = cmp.mapping(
       function(fallback)
         if cmp.visible() then
-          cmp.select_next_item()
+          cmp.select_next_item { behavior = cmp.SelectBehavior.Insert }
         elseif utils.has_word_before() then
           cmp.complete()
         else
@@ -58,6 +58,12 @@ cmp.setup {
       ['<C-e>'] = cmp.mapping.abort(),
 
   },
+
+
+  --
+  -- Others
+  --
+  preselect = cmp.PreselectMode.None
 
 }
 
