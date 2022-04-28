@@ -68,6 +68,6 @@ cmp.setup {
 }
 
 
-require 'configs/cmp/lsp'
+require 'configs/lsp/setup'
 require 'configs/cmp/cmdline'
 

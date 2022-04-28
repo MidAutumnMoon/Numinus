@@ -6,7 +6,7 @@ local updated_cap =
 
 
 --
--- Servers
+-- Configure Servers
 --
 
 local lspconfig = require 'lspconfig'
@@ -50,3 +50,7 @@ for _, server in ipairs( lsp_servers ) do
 end
 
 
+--
+-- Tweaks
+--
+require 'configs/lsp/tweaks'
