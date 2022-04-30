@@ -14,6 +14,8 @@ require 'nvim-treesitter.configs'.setup {
     'commonlisp',
     'scheme',
 
+    'javascript',
+
     'yaml',
     'toml',
     'json',

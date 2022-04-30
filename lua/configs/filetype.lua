@@ -10,6 +10,9 @@ require 'filetype'.setup { overrides = {
     path    = 'systemd',
     timer   = 'systemd',
 
+    -- XML things
+    opml = 'xml',
+
     -- other things
     rkt = 'racket',
   },
