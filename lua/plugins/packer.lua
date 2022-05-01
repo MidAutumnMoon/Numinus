@@ -43,9 +43,6 @@ require 'packer'.startup( function()
         event = { 'InsertEnter', 'CursorMoved' },
         config = [[ require 'configs/autosave' ]] }
 
-  use { 'nathom/filetype.nvim',
-        config = [[ require 'configs/filetype' ]] }
-
   use { 'airblade/vim-rooter',
         event = 'VimEnter',
         config = [[ require 'configs/rooter' ]] }
