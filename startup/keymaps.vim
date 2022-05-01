@@ -8,6 +8,7 @@ nnoremap <Leader>O O<ESC>
 
 " quit vim
 nnoremap <silent> <Leader>q :update<Bar>qa<CR>
+nnoremap <silent> <MiddleMouse> :update<Bar>qa<CR>
 nnoremap <silent> <LocalLeader>q :qa!<CR>
 
 " select all lines
