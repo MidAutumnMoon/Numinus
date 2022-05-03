@@ -15,6 +15,7 @@ let s:green = '#c3e88d'
 let s:cyan = '#89ddff'
 let s:blue = '#82aaff'
 
+let s:pink = '#ff59ff'
 let s:purple = '#c792ea'
 
 let s:yellow = '#ffcb6b'
@@ -214,8 +215,8 @@ endfunction
   call s:hil( 'IndentBlanklineContextStart', { 'sp': s:white, 'effects': 'undercurl' } )
 
   " quick-scope
-  call s:hil( 'QuickScopePrimary',   { 'fg': s:green, 'effects': 'underline,bold' } )
-  call s:hil( 'QuickScopeSecondary', { 'fg': s:red_light, 'effects': 'underline,bold' } )
+  call s:hil( 'QuickScopePrimary',   { 'fg': s:pink, 'effects': 'underline,bold' } )
+  call s:hil( 'QuickScopeSecondary', { 'fg': s:orange, 'effects': 'underline,bold' } )
 
 " }}}
 
