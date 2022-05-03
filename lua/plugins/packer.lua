@@ -81,6 +81,7 @@ require 'packer'.startup( function()
 
   use { 'nvim-telescope/telescope.nvim',
         event = { 'CursorHold', 'CursorMoved' },
+        keys = '<Leader>f',
         config = [[ require 'configs/telescope' ]] }
 
 
@@ -136,7 +137,8 @@ require 'packer'.startup( function()
 
   -- Misc things
 
-  use 'nvim-lua/plenary.nvim'
+  use { 'nvim-lua/plenary.nvim',
+        module = 'plenary' }
 
 
 
