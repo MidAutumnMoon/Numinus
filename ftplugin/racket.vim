@@ -5,4 +5,3 @@ let more_lispwords = [
       \ ]
 
 execute 'setlocal lispwords+=' . join( more_lispwords, ',' )
-

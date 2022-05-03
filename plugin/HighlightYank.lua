@@ -2,7 +2,6 @@
 -- See this PR : https://github.com/neovim/neovim/pull/12279
 --
 
-
 local HighlightYank =
   vim.api.nvim_create_augroup( 'HighlightYank', { clear = true } )
 

@@ -1,4 +1,4 @@
-local filetypes = {
+vim.filetype.add {
 
   extension = {
     -- Polkit
@@ -26,5 +26,3 @@ local filetypes = {
   },
 
 }
-
-vim.filetype.add( filetypes )

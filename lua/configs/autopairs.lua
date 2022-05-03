@@ -4,7 +4,6 @@ local Rule = require 'nvim-autopairs.rule'
 
 
 autopairs.setup {
-
   check_ts = true,
 
   disable_filetype = {
@@ -16,7 +15,6 @@ autopairs.setup {
 
   map_c_h = true,
   map_c_w = true,
-
 }
 
 

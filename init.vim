@@ -14,4 +14,3 @@ runtime! lua/plugins/packer.lua
 
 set exrc
 set secure
-

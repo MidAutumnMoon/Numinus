@@ -1,14 +1,15 @@
-local packer_repo = 
+local packer_repo =
   'https://github.com/wbthomason/packer.nvim'
 
-local data_path = vim.fn.stdpath( 'data' )
-
+local data_path =
+  vim.fn.stdpath( 'data' )
 
 local install_path =
   data_path .. '/site/pack/packer/start/packer.nvim'
 
+
 local install_path_is_empty =
-  vim.fn.empty( vim.fn.glob(install_path) ) > 0 
+  vim.fn.empty( vim.fn.glob(install_path) ) > 0
 
 
 if install_path_is_empty then
@@ -16,9 +17,9 @@ if install_path_is_empty then
     echom "bootstrapping packer..."
   ]]
 
-  vim.fn.system { 
+  vim.fn.system {
     'git', 'clone', '--depth', '1', packer_repo, install_path
   }
 end
-  
+
 
