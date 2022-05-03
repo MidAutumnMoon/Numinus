@@ -63,8 +63,10 @@ require 'packer'.startup( function()
         event = { 'InsertEnter' },
         config = [[ require 'configs/autopairs' ]] }
 
-  use { 'qpkorr/vim-bufkill',
-        config = [[ require 'configs/bufkill' ]] }
+  use { 'famiu/bufdelete.nvim',
+        cmd = { 'Bdelete', 'Bwipeout' },
+        keys = '<C-q>',
+        config = [[ require 'configs/bufdelete' ]]}
 
 
 
