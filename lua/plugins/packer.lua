@@ -6,7 +6,7 @@ require 'packer'.startup( function()
   -- Impatient!
 
   use { 'lewis6991/impatient.nvim',
-        config = [[ require('impatient') ]] }
+        config = [[ require 'impatient' ]] }
 
 
 
@@ -125,11 +125,12 @@ require 'packer'.startup( function()
   -- Treesitter
 
   use { 'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
         config = [[ require 'configs/treesitter' ]] }
 
-  use 'p00f/nvim-ts-rainbow'
+  use { 'p00f/nvim-ts-rainbow' }
 
-  use 'RRethy/nvim-treesitter-endwise'
+  use { 'nvim-treesitter/nvim-treesitter-textobjects' }
 
 
 

@@ -10,8 +10,7 @@ vim.api.nvim_create_autocmd( 'TextYankPost',
   {
     pattern = '*',
     group = HighlightYank,
-    callback = 
-      function()
+    callback = function()
         require 'vim.highlight'.on_yank { 'IncSearch', 80 }
       end
   }

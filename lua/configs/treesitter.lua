@@ -38,7 +38,43 @@ require 'nvim-treesitter.configs'.setup {
   },
 
   textobjects = {
-    enable = true
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ['af'] = '@function.outer',
+        ['if'] = '@function.inner',
+        ['ac'] = '@conditional.outer',
+        ['ic'] = '@conditional.inner',
+        ['ao'] = '@loop.outer',
+        ['io'] = '@loop.inner',
+      }
+    },
+    swap = {
+      enable = true,
+      swap_next = {
+        ['csp'] = '@parameter.inner',
+      },
+      swap_previous = {
+        ['csP'] = '@parameter.inner',
+      },
+    },
+    move = {
+      enable = true,
+      set_jumps = true,
+      goto_next_start = {
+        [']]'] = '@function.outer'
+      },
+      goto_next_end = {
+        [']['] = '@function.outer'
+      },
+      goto_previous_start = {
+        ['[['] = '@function.outer'
+      },
+      goto_previous_end = {
+        ['[]'] = '@function.outer'
+      }
+    }
   },
 
   matchup = {
@@ -48,10 +84,6 @@ require 'nvim-treesitter.configs'.setup {
   rainbow = {
     enable = true,
   },
-
-  endwise = {
-    enable = true,
-  }
 
 }
 
