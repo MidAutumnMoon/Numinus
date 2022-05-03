@@ -10,7 +10,7 @@ set lazyredraw
 set modelines=3
 set mouse=a
 set nospell
-set shell=bash
+set shell=/bin/sh
 set timeoutlen=350
 set undofile
 set updatetime=180
