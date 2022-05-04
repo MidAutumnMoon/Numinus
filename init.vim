@@ -3,7 +3,7 @@
 "
 
 let mapleader = " "
-let maplocalleader = "\<F12>"
+let maplocalleader = ",,"
 
 let g:do_filetype_lua = 1
 let g:did_load_filetypes = 0
