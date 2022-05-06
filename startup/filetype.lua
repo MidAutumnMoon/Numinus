@@ -14,7 +14,8 @@ vim.filetype.add {
     opml = 'xml',
 
     -- racket
-    rkt = 'racket'
+    rkt = 'racket',
+    zuo = 'racket',
   },
 
   filename = {
