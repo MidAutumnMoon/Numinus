@@ -67,3 +67,14 @@ syntax keyword racketSyntax for-syntax for-template for-label for-meta or-space
 " SRFI 54
 syntax keyword racketFunc cat
 
+
+" Zuo
+syntax keyword racketFunc alert ~v ~a ~s string-read
+syntax keyword racketFunc variable variable? variable-set! opaque opaque-ref
+syntax keyword racketFunc module-paths? build-module-path module->hash dynamic-require kernel-eval kernel-env
+syntax keyword racketFunc handle? fd-open-input fd-open-output fd-close fd-read fd-write fd-terminal? fd-valid? file->string
+syntax keyword racketFunc cleanable-file cleanable-cancel
+syntax keyword racketFunc shell shell/wait build-shell shell-subst
+syntax keyword racketFunc runtime-env system-type current-time dump-image-and-exit exit suspend-signal resume-signal
+syntax keyword racketFunc file-exists? directory-exists?A link-exists?
+
