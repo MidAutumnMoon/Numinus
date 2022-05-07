@@ -73,7 +73,8 @@ require 'packer'.startup( function()
   -- Navigating
 
   use { 'unblevable/quick-scope',
-        config = [[ require 'configs/quick-scope' ]] }
+        keys = { 'f', 'F' },
+        setup = [[ require 'configs/quick-scope' ]] }
 
   use { 'phaazon/hop.nvim',
         event = { 'CursorMoved', 'CursorHold' },
