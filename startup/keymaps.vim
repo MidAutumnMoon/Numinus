@@ -57,23 +57,18 @@ xnoremap <silent> <C-l> >gv
 xnoremap < <gv
 xnoremap > >gv
 
-
 " more nature way to switch between files.
 inoremap <C-^> <C-o><C-^>
 nnoremap <A-CR> <C-^>
 inoremap <A-CR> <C-o><C-^>
 
 " delete one character after cursor
-imap <C-v> <Del>
-cmap <C-v> <Del>
+inoremap <C-v> <Del>
+inoremap <C-v> <Del>
 
-" <tab> to cycle through all splits, with nerdtree ignored
+" <tab> to cycle through all splits
 nnoremap <silent> <Tab> <C-w>w
 nnoremap <silent> <S-Tab> <C-w>W
-
-" shorter \"inside tag block\"
-omap t it
-
 
 " scroll the viewport faster
 nnoremap <C-e> 3<C-e>
@@ -83,8 +78,7 @@ nnoremap <C-y> 3<C-y>
 nnoremap <silent> <C-u> mzg~iw`z
 
 " exit terminal mode
-tnoremap <expr> <ESC> &ft ==# 'fzf' ? '<ESC>' : '<C-\><C-n>'
-
+tnoremap <silent> <ESC> <C-\><C-n>
 
 " switch to tab N
 nnoremap <silent> <Leader>1 1gt
@@ -94,7 +88,6 @@ nnoremap <silent> <Leader>4 4gt
 nnoremap <silent> <Leader>8 5gt
 nnoremap <silent> <Leader>9 6gt
 nnoremap <silent> <Leader>0 7gt
-
 
 " toggle folds - one keystroke is better than two
 nnoremap <M-f> za
