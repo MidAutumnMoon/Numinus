@@ -1,4 +1,8 @@
 local disabled_plugins = {
+  'netrw',
+  'netrwPlugin',
+  'netrwSettings',
+  'netrwFileHandlers',
   'gzip',
   'zip',
   'zipPlugin',
