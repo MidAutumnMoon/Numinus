@@ -3,8 +3,8 @@ nmap j gj
 nmap k gk
 
 " start a newline
-nnoremap <Leader>o o<ESC>
-nnoremap <Leader>O O<ESC>
+nnoremap <Leader>o o<EsC>
+nnoremap <Leader>O O<EsC>
 
 " quit vim
 nnoremap <silent> <Leader>q :wall<Bar>qa<CR>
@@ -78,7 +78,7 @@ nnoremap <C-y> 3<C-y>
 nnoremap <silent> <C-u> mzg~iw`z
 
 " exit terminal mode
-tnoremap <silent> <ESC> <C-\><C-n>
+tnoremap <silent> <Esc> <C-\><C-n>
 
 " switch to tab N
 nnoremap <silent> <Leader>1 1gt
@@ -92,4 +92,7 @@ nnoremap <silent> <Leader>0 7gt
 " toggle folds - one keystroke is better than two
 nnoremap <M-f> za
 inoremap <M-f> <C-o>za
+
+" alternative methods to exit i-mode
+inoremap <C-q> <Esc>
 
