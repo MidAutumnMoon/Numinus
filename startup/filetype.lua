@@ -1,7 +1,7 @@
 vim.filetype.add {
 
   extension = {
-    -- Polkit
+    -- polkit
     rules = 'javascript',
 
     -- systemd things
@@ -16,6 +16,9 @@ vim.filetype.add {
     -- racket
     rkt = 'racket',
     zuo = 'racket',
+
+    -- other things
+    cue = 'cue',
   },
 
   filename = {
