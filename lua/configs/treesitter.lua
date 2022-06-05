@@ -7,14 +7,14 @@ require 'nvim-treesitter.configs'.setup {
 
     'erlang',
     'rust',
+    'python',
 
     'bash',
     'fish',
-
     'commonlisp',
-    'scheme',
 
     'javascript',
+    'typescript',
 
     'yaml',
     'toml',
