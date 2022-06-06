@@ -66,7 +66,14 @@ require 'packer'.startup( function()
   use { 'famiu/bufdelete.nvim',
         cmd = { 'Bdelete', 'Bwipeout' },
         keys = '<C-q>',
-        config = [[ require 'configs/bufdelete' ]]}
+        config = [[ require 'configs/bufdelete' ]] }
+
+  use { 'L3MON4D3/LuaSnip',
+        event = 'InsertEnter',
+        module = 'luasnip',
+        config = [[ require 'configs/luasnip' ]] }
+
+  use { 'rafamadriz/friendly-snippets' }
 
 
 
@@ -120,6 +127,9 @@ require 'packer'.startup( function()
         after = 'nvim-cmp' }
 
   use { 'neovim/nvim-lspconfig',
+        after = 'nvim-cmp' }
+
+  use { 'saadparwaiz1/cmp_luasnip',
         after = 'nvim-cmp' }
 
 

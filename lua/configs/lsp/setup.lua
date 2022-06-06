@@ -13,7 +13,8 @@ local lspconfig = require 'lspconfig'
 
 local lsp_servers = {
   'rnix',
-  'rust_analyzer'
+  'rust_analyzer',
+  'tsserver'
 }
 
 
