@@ -96,8 +96,8 @@ require 'packer'.startup( function()
   use { 'elixir-editors/vim-elixir',
         ft = { 'elixir' } }
 
-  use { 'benknoble/vim-racket',
-        ft = { 'racket' } }
+  -- use { 'benknoble/vim-racket',
+  --       ft = { 'racket' } }
 
 
 
