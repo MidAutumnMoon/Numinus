@@ -5,8 +5,7 @@ require 'packer'.startup( function()
 
   -- Impatient!
 
-  use { 'lewis6991/impatient.nvim',
-        config = [[ require 'impatient' ]] }
+  use { 'lewis6991/impatient.nvim' }
 
 
 
