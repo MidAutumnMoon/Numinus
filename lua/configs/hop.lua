@@ -1,20 +1,19 @@
-require( 'hop' ).setup {
+local hop = require 'hop'
+local hint = require 'hop.hint'
+
+local direction_AC = hint.HintDirection.AFTER_CURSOR
+local direction_BC = hint.HintDirection.BEFORE_CURSOR
+
+
+hop.setup {
   char2_fallback_key = '<CR>'
 }
-
-
--- Inclusive variants of Hop's
--- predefined commands
-
-local direction_AC = require( 'hop.hint' ).HintDirection.AFTER_CURSOR
-local direction_BC = require( 'hop.hint' ).HintDirection.BEFORE_CURSOR
-
 
 
 -- there's a bug in backwards inclusive jump
 vim.api.nvim_create_user_command( 'HopChar1CurrentLineBCinc',
   function( input )
-    require( 'hop' ).hint_char1(
+    hop.hint_char1(
       {
         direction = direction_BC,
         current_line_only = true,
@@ -25,7 +24,7 @@ vim.api.nvim_create_user_command( 'HopChar1CurrentLineBCinc',
 
 vim.api.nvim_create_user_command( 'HopChar1CurrentLineACinc',
   function( input )
-    require( 'hop' ).hint_char1(
+    hop.hint_char1(
       {
         direction = direction_AC,
         current_line_only = true,

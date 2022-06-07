@@ -1,5 +1,1 @@
-vim.cmd [[
-
-  nnoremap <silent> <C-q> :Bdelete<CR>
-
-]]
+vim.keymap.set( 'n', '<C-q>', '<CMD>Bdelete<CR>', { silent = true } )

@@ -10,7 +10,7 @@ let g:did_load_filetypes = 0
 
 runtime! startup/*.vim
 runtime! startup/*.lua
-runtime! lua/plugins/packer.lua
+runtime! lua/packer/plugins.lua
 
 set exrc
 set secure

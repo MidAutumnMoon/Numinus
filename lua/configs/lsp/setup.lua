@@ -19,39 +19,53 @@ local lsp_servers = {
 
 
 local setup_keymaps = function()
-  vim.cmd [[
+  local set_key = function( key, func )
+    vim.keymap.set( 'n', key, func, { silent = true, buffer = true } )
+  end
+  local keymaps = {
+    { 'gd', vim.lsp.buf.definition },
+    { 'gD', vim.lsp.buf.declaration },
+    { 'gi', vim.lsp.buf.implementation },
+    { 'gr', vim.lsp.buf.references },
 
-    nnoremap <silent> <buffer> gd <CMD>lua vim.lsp.buf.definition()<CR>
-    nnoremap <silent> <buffer> gD <CMD>lua vim.lsp.buf.declaration()<CR>
-    nnoremap <silent> <buffer> gi <CMD>lua vim.lsp.buf.implementation()<CR>
-    nnoremap <silent> <buffer> gr <CMD>lua vim.lsp.buf.references()<CR>
+    { '<F2>', vim.lsp.buf.rename },
+    { 'K', vim.lsp.buf.hover },
 
-    nnoremap <silent> <buffer> <F2> <CMD>lua vim.lsp.buf.rename()<CR>
-
-    nnoremap <silent> <buffer> ]a <CMD>lua vim.diagnostic.goto_next()<CR>
-    nnoremap <silent> <buffer> [a <CMD>lua vim.diagnostic.goto_prev()<CR>
-
-    nnoremap <silent> <buffer> K <CMD>lua vim.lsp.buf.hover()<CR>
-
-  ]]
+    { ']a', vim.diagnostic.goto_next },
+    { '[a', vim.diagnostic.goto_prev },
+  }
+  for _, mapping in ipairs( keymaps ) do
+    set_key( mapping[1], mapping[2] )
+  end
 end
 
 
 -- do it in a batch
 
 for _, server in ipairs( lsp_servers ) do
-
   lspconfig[ server  ].setup {
     on_attach = function( client, bufnr )
         setup_keymaps()
       end,
     capabilities = updated_cap
   }
-
 end
 
 
 --
 -- Tweaks
 --
-require 'configs/lsp/tweaks'
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with (
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    update_in_insert = true,
+    underline = {
+      severity = { min = vim.diagnostic.severity.INFO }
+    },
+    virtual_text = {
+      severity = { min = vim.diagnostic.severity.INFO }
+    },
+    signs = {
+      severity = { min = vim.diagnostic.severity.INFO }
+    }
+  }
+)

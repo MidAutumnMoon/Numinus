@@ -4,13 +4,19 @@ local luasnip = require 'luasnip'
 
 local utils = require 'configs/cmp/utils'
 
+
+
 --
 -- Setup LSP
 --
+require 'configs/lsp/setup'
 
 
+
+--
+--- Setup cmp
+--
 cmp.setup {
-
   --
   -- Source
   --
@@ -20,19 +26,24 @@ cmp.setup {
       { name = 'nvim_lsp' },
       { name = 'nvim_lua' },
       { name = 'path' },
-      { name = 'buffer', option = {
-          get_bufnrs = function()
-              return vim.api.nvim_list_bufs()
-            end
-          } },
-  },
 
+      { name = 'buffer',
+        option = {
+          -- all visible buffers
+          get_bufnrs = function()
+            local bufs = {}
+            for _, win in ipairs( vim.api.nvim_list_wins() ) do
+              bufs[ vim.api.nvim_win_get_buf(win) ] = true
+            end
+            return vim.tbl_keys( bufs )
+          end
+        } },
+  },
 
   --
   -- Mappings
   --
   mapping = {
-
     -- Tabs
 
     ['<Tab>'] = cmp.mapping( function( fallback )
@@ -58,7 +69,6 @@ cmp.setup {
     end, { 'i', 's' } ),
 
     -- Others
-
     ['<C-e>'] = cmp.mapping.abort(),
 
     ['<Enter>'] = cmp.mapping( function( fallback )
@@ -68,9 +78,7 @@ cmp.setup {
         fallback()
       end
     end, { 'i' })
-
   },
-
 
   --
   -- Snippet
@@ -81,15 +89,32 @@ cmp.setup {
     end
   },
 
-
   --
   -- Others
   --
   preselect = cmp.PreselectMode.None,
-
 }
 
 
-require 'configs/lsp/setup'
-require 'configs/cmp/cmdline'
+
+--
+-- cmp-cmdline
+--
+cmp.setup.cmdline( ':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources( {
+      { name = 'path' },
+      { name = 'nvim_lua' }
+    }, {
+      { name = 'buffer' },
+    } )
+} )
+
+cmp.setup.cmdline( '/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+} )
+
 

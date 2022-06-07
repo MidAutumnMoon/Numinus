@@ -1,4 +1,4 @@
-require 'plugins/bootstrap'
+require 'packer/bootstrap'
 
 
 require 'packer'.startup( function()
@@ -90,6 +90,7 @@ require 'packer'.startup( function()
   use { 'nvim-telescope/telescope.nvim',
         event = { 'CursorHold', 'CursorMoved' },
         keys = '<Leader>f',
+        command = 'Telescope',
         config = [[ require 'configs/telescope' ]] }
 
 

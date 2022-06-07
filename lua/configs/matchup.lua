@@ -1,5 +1,1 @@
-vim.cmd [[
-
-  let g:matchup_surround_enabled = 1
-
-]]
+vim.g.matchup_surround_enabled = 1
