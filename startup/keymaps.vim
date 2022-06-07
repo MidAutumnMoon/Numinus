@@ -7,6 +7,7 @@ nnoremap <Leader>o o<EsC>
 nnoremap <Leader>O O<EsC>
 
 " quit vim
+" see also ../plugin/QuitWithSession.lua
 nnoremap <silent> <Leader>q :wall<Bar>qa<CR>
 nnoremap <silent> <MiddleMouse> :wall<Bar>qa<CR>
 nnoremap <silent> <LocalLeader>q :qa!<CR>
