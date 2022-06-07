@@ -4,6 +4,10 @@ local luasnip = require 'luasnip'
 
 local utils = require 'configs/cmp/utils'
 
+--
+-- Setup LSP
+--
+
 
 cmp.setup {
 
@@ -57,7 +61,13 @@ cmp.setup {
 
     ['<C-e>'] = cmp.mapping.abort(),
 
-    ['<CR>'] = cmp.mapping.confirm { select = true }
+    ['<Enter>'] = cmp.mapping( function( fallback )
+      if cmp.visible() and luasnip.expandable() then
+        cmp.confirm { select = true }
+      else
+        fallback()
+      end
+    end, { 'i' })
 
   },
 
