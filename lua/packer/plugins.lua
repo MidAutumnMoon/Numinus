@@ -115,18 +115,22 @@ require 'packer'.startup( function()
         config = [[ require 'configs/cmp/cmp' ]] }
 
   use { 'hrsh7th/cmp-buffer',
+        module = 'cmp_buffer',
         after = 'nvim-cmp' }
 
   use { 'hrsh7th/cmp-path',
+        module = 'cmp_path',
         after = 'nvim-cmp' }
 
   use { 'hrsh7th/cmp-nvim-lua',
         after = 'nvim-cmp' }
 
   use { 'hrsh7th/cmp-nvim-lsp',
+        module = 'cmp_nvim_lsp',
         after = 'nvim-cmp' }
 
   use { 'neovim/nvim-lspconfig',
+        module = 'lspconfig',
         after = 'nvim-cmp' }
 
   use { 'saadparwaiz1/cmp_luasnip',
