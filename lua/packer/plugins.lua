@@ -30,6 +30,10 @@ require 'packer'.startup( function()
         event = { 'CursorMoved', 'CursorHold' },
         config = [[ require 'configs/sandwich' ]] }
 
+  use { 'windwp/nvim-autopairs',
+        event = { 'InsertEnter' },
+        config = [[ require 'configs/autopairs' ]] }
+
 
 
   -- QoLI
@@ -58,10 +62,6 @@ require 'packer'.startup( function()
         event = { 'CursorHold', 'CursorMoved' },
         config = [[ require 'configs/gitsigns' ]] }
 
-  use { 'windwp/nvim-autopairs',
-        event = { 'InsertEnter' },
-        config = [[ require 'configs/autopairs' ]] }
-
   use { 'famiu/bufdelete.nvim',
         cmd = { 'Bdelete', 'Bwipeout' },
         keys = '<C-q>',
@@ -73,6 +73,8 @@ require 'packer'.startup( function()
         config = [[ require 'configs/luasnip' ]] }
 
   use { 'rafamadriz/friendly-snippets' }
+
+  use { 'gpanders/editorconfig.nvim' }
 
 
 
