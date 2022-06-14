@@ -101,12 +101,6 @@ require 'packer'.startup( function()
           ft = { 'racket', 'scheme', 'lisp' },
           run = [[ nix shell nixpkgs#{cargo,gcc} -c cargo build --release ]] }
 
-    use { 'elixir-editors/vim-elixir',
-          ft = { 'elixir' } }
-
-    -- use { 'benknoble/vim-racket',
-    --       ft = { 'racket' } }
-
 
 
     -- Cmp
@@ -116,26 +110,25 @@ require 'packer'.startup( function()
           config = [[ require 'configs/cmp/cmp' ]] }
 
     use { 'hrsh7th/cmp-buffer',
-          module = 'cmp_buffer',
-          after = 'nvim-cmp' }
+          module = 'cmp_buffer' }
 
     use { 'hrsh7th/cmp-path',
-          module = 'cmp_path',
-          after = 'nvim-cmp' }
+          module = 'cmp_path' }
 
     use { 'hrsh7th/cmp-nvim-lua',
           after = 'nvim-cmp' }
 
     use { 'hrsh7th/cmp-nvim-lsp',
-          module = 'cmp_nvim_lsp',
-          after = 'nvim-cmp' }
+          module = 'cmp_nvim_lsp' }
 
     use { 'neovim/nvim-lspconfig',
-          module = 'lspconfig',
-          after = 'nvim-cmp' }
+          module = 'lspconfig' }
 
     use { 'saadparwaiz1/cmp_luasnip',
           after = 'nvim-cmp' }
+
+    use { 'hrsh7th/cmp-cmdline',
+          module = "cmp_cmdline" }
 
 
 

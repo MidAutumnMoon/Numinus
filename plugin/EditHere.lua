@@ -11,7 +11,7 @@ EditHere = {}
 -- Get the directory of current file.
 --
 EditHere.dir_of_this_file = function()
-  return vim.fn.expand( '%:p:h' )
+    return vim.fn.expand( '%:p:h' )
 end
 
 
@@ -21,11 +21,11 @@ end
 -- path which is related to CWD.
 --
 EditHere.related_to_cwd = function()
-  local cwd = vim.fn.getcwd()
-  local here = EditHere.dir_of_this_file()
+    local cwd = vim.fn.getcwd()
+    local here = EditHere.dir_of_this_file()
 
-  return vim.fn.substitute(
-      here, cwd, '.', ''
+    return vim.fn.substitute(
+    here, cwd, '.', ''
     )
 end
 
@@ -34,5 +34,5 @@ end
 -- Set the keymap.
 --
 vim.cmd [[
-  nnoremap ,e :e <C-r>=luaeval( 'EditHere.related_to_cwd()' )<CR>
+    nnoremap ,e :e <C-r>=luaeval( 'EditHere.related_to_cwd()' )<CR>
 ]]

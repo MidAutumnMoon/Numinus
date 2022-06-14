@@ -9,16 +9,16 @@
 
 
 if vim.g.quit_saving_session ~= 1 then
-  return
+    return
 end
 
 
 local cwd = vim.fn.getcwd()
 
 local quit_with_session = function()
-  vim.cmd 'wall'
-  vim.cmd ('mksession!' .. ' ' .. cwd .. '/Session.teapot.vim')
-  vim.cmd 'qall'
+    vim.cmd 'wall'
+    vim.cmd ('mksession!' .. ' ' .. cwd .. '/Session.teapot.vim')
+    vim.cmd 'qall'
 end
 
 vim.keymap.set( 'n', '<Leader>q', quit_with_session, { silent = true } )

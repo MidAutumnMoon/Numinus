@@ -3,14 +3,12 @@
 --
 
 local HighlightYank =
-  vim.api.nvim_create_augroup( 'HighlightYank', { clear = true } )
+vim.api.nvim_create_augroup( 'HighlightYank', { clear = true } )
 
-vim.api.nvim_create_autocmd( 'TextYankPost',
-  {
+vim.api.nvim_create_autocmd( 'TextYankPost', {
     pattern = '*',
     group = HighlightYank,
     callback = function()
         require 'vim.highlight'.on_yank { 'IncSearch', 80 }
-      end
-  }
-)
+    end
+} )

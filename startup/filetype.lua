@@ -1,32 +1,32 @@
 vim.filetype.add {
 
-  extension = {
-    -- polkit
-    rules = 'javascript',
+    extension = {
+        -- polkit
+        rules = 'javascript',
 
-    -- systemd things
-    service = 'systemd',
-    target  = 'systemd',
-    path    = 'systemd',
-    timer   = 'systemd',
+        -- systemd things
+        service = 'systemd',
+        target  = 'systemd',
+        path    = 'systemd',
+        timer   = 'systemd',
 
-    -- XML based
-    opml = 'xml',
+        -- XML based
+        opml = 'xml',
 
-    -- racket
-    rkt = 'racket',
-    zuo = 'racket',
+        -- racket
+        rkt = 'racket',
+        zuo = 'racket',
 
-    -- other things
-    cue = 'cue',
-  },
+        -- other things
+        cue = 'cue',
+    },
 
-  filename = {
-    -- actual Bash things
-    ['.envrc'] = 'bash',
+    filename = {
+        -- actual Bash things
+        ['.envrc'] = 'bash',
 
-    -- actual JSON things
-    ['flake.lock'] = 'json'
-  },
+        -- actual JSON things
+        ['flake.lock'] = 'json'
+    },
 
 }
