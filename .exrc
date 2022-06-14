@@ -1,1 +1,1 @@
-let g:quit_with_session = 1
+let g:quit_saving_session = 1

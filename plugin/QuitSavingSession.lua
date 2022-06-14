@@ -8,7 +8,7 @@
 --
 
 
-if vim.g.quit_with_session ~= 1 then
+if vim.g.quit_saving_session ~= 1 then
   return
 end
 
