@@ -30,7 +30,6 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [b :bprev<CR>
 
 " switch tabs
-nnoremap <silent> Q <C-w>g<Tab>
 nnoremap <silent> <Leader>t :tabedit<CR>
 nnoremap <silent> <M-]> :tabnext<CR>
 nnoremap <silent> <M-[> :tabprevious<CR>
