@@ -14,8 +14,9 @@ require 'packer'.startup( function()
     use 'tommcdo/vim-exchange'
     use 'wellle/targets.vim'
 
-    use { 'tpope/vim-commentary',
-          keys = { 'gc', 'gcc' } }
+    use { 'numToStr/Comment.nvim',
+          keys = { 'gc', 'gb' },
+          config = [[ require 'configs/comment' ]] }
 
     use { 'junegunn/vim-after-object',
           keys = 'a',
@@ -148,6 +149,8 @@ require 'packer'.startup( function()
 
     use { 'nvim-lua/plenary.nvim',
           module = 'plenary' }
+
+    use { 'antoinemadec/FixCursorHold.nvim' }
 
 
 
