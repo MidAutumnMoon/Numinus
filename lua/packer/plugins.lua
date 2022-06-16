@@ -68,7 +68,6 @@ require 'packer'.startup( function()
           config = [[ require 'configs/bufdelete' ]] }
 
     use { 'L3MON4D3/LuaSnip',
-          event = 'InsertEnter',
           module = 'luasnip',
           config = [[ require 'configs/luasnip' ]] }
 
@@ -100,7 +99,9 @@ require 'packer'.startup( function()
 
     use { 'eraserhd/parinfer-rust',
           ft = { 'racket', 'scheme', 'lisp' },
-          run = [[ nix shell nixpkgs#{cargo,gcc} -c cargo build --release ]] }
+          run = [[
+            CARGO_PROFILE_RELEASE_LTO=thin nix shell nixpkgs#{cargo,clang} -c cargo build --release
+          ]] }
 
 
 
@@ -110,26 +111,31 @@ require 'packer'.startup( function()
           event = { 'InsertEnter', 'CursorHold', 'CursorMoved' },
           config = [[ require 'configs/cmp/cmp' ]] }
 
+    use { 'neovim/nvim-lspconfig',
+          module = 'lspconfig' }
+
     use { 'hrsh7th/cmp-buffer',
-          module = 'cmp_buffer' }
+          module = 'cmp_buffer',
+          after = 'nvim-cmp' }
 
     use { 'hrsh7th/cmp-path',
-          module = 'cmp_path' }
+          module = 'cmp_path',
+          after = 'nvim-cmp' }
 
     use { 'hrsh7th/cmp-nvim-lua',
           after = 'nvim-cmp' }
 
     use { 'hrsh7th/cmp-nvim-lsp',
-          module = 'cmp_nvim_lsp' }
-
-    use { 'neovim/nvim-lspconfig',
-          module = 'lspconfig' }
+          module = 'cmp_nvim_lsp',
+          after = 'nvim-cmp' }
 
     use { 'saadparwaiz1/cmp_luasnip',
+          module = 'cmp_luasnip',
           after = 'nvim-cmp' }
 
     use { 'hrsh7th/cmp-cmdline',
-          module = "cmp_cmdline" }
+          module = 'cmp_cmdline',
+          after = 'nvim-cmp' }
 
 
 
@@ -149,8 +155,6 @@ require 'packer'.startup( function()
 
     use { 'nvim-lua/plenary.nvim',
           module = 'plenary' }
-
-    use { 'antoinemadec/FixCursorHold.nvim' }
 
 
 

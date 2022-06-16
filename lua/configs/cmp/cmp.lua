@@ -21,13 +21,12 @@ cmp.setup {
     -- Source
     --
 
-    sources = {
+    sources = cmp.config.sources( {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'nvim_lua' },
         { name = 'path' },
-        { name = 'buffer',
-        option = {
+        { name = 'buffer', option = {
             -- all visible buffers
             get_bufnrs = function()
                 local bufs = {}
@@ -37,7 +36,7 @@ cmp.setup {
                 return vim.tbl_keys( bufs )
             end
         } },
-    },
+    } ),
 
     --
     -- Mappings
@@ -102,9 +101,9 @@ cmp.setup {
 cmp.setup.cmdline( ':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources( {
-        { name = 'path' },
-        { name = 'nvim_lua' },
         { name = "cmdline" },
+        { name = 'nvim_lua' },
+        { name = 'path' },
     }, {
         { name = 'buffer' },
     } )
