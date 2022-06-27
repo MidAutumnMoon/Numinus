@@ -16,9 +16,9 @@ nnoremap <silent> <LocalLeader>q :qa!<CR>
 nnoremap <Leader>A ggVG
 
 " jump to end of line with one stroke
-nmap \ $
-omap \ $
-xmap \ $
+nmap <A-a> $
+omap <A-a> $
+xmap <A-a> $
 
 " <Enter> is easier to reach than %
 nmap <Enter> %

@@ -34,5 +34,5 @@ end
 -- Set the keymap.
 --
 vim.cmd [[
-    nnoremap ,e :e <C-r>=luaeval( 'EditHere.related_to_cwd()' )<CR>
+    nnoremap <LocalLeader>e :e <C-r>=luaeval( 'EditHere.related_to_cwd()' )<CR>
 ]]
