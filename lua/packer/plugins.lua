@@ -50,10 +50,6 @@ require 'packer'.startup( function()
           event = 'VimEnter',
           config = [[ require 'configs/rooter' ]] }
 
-    use { 'junegunn/vim-slash',
-          keys = { '/', '*' },
-          config = [[ require 'configs/slash' ]] }
-
     use { 'andymass/vim-matchup',
           event = { 'CursorHold', 'CursorMoved' },
           config = [[ require 'configs/matchup' ]] }

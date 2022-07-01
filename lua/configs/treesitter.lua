@@ -15,6 +15,7 @@ require 'nvim-treesitter.configs'.setup {
 
         'javascript',
         'typescript',
+        'tsx',
 
         'yaml',
         'toml',

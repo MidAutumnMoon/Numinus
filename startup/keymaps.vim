@@ -96,3 +96,6 @@ inoremap <M-f> <C-o>za
 " alternative methods to exit i-mode
 inoremap <C-q> <Esc>
 
+" clear search highlightings
+nnoremap <silent> <Esc> :nohlsearch<CR>
+
