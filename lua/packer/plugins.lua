@@ -54,9 +54,9 @@ require 'packer'.startup( function()
           event = { 'CursorHold', 'CursorMoved' },
           config = [[ require 'configs/matchup' ]] }
 
-    use { 'lewis6991/gitsigns.nvim',
-          event = { 'CursorHold', 'CursorMoved' },
-          config = [[ require 'configs/gitsigns' ]] }
+    -- use { 'lewis6991/gitsigns.nvim',
+    --       event = { 'CursorHold', 'CursorMoved' },
+    --       config = [[ require 'configs/gitsigns' ]] }
 
     use { 'famiu/bufdelete.nvim',
           cmd = { 'Bdelete', 'Bwipeout' },
@@ -70,6 +70,11 @@ require 'packer'.startup( function()
     use { 'rafamadriz/friendly-snippets' }
 
     use { 'gpanders/editorconfig.nvim' }
+
+    use { 'akinsho/toggleterm.nvim',
+          tag = 'v2.1.0',
+          config = [[ require 'configs/toggleterm' ]],
+          keys = '<C-`>' }
 
 
 

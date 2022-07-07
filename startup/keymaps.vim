@@ -31,8 +31,18 @@ nnoremap <silent> [b :bprev<CR>
 
 " switch tabs
 nnoremap <silent> <Leader>t :tabedit<CR>
+nnoremap <silent> <LocalLeader>t :tabclose<CR>
 nnoremap <silent> <M-]> :tabnext<CR>
 nnoremap <silent> <M-[> :tabprevious<CR>
+
+" switch to tab N
+nnoremap <silent> <LocalLeader>1 1gt
+nnoremap <silent> <LocalLeader>2 2gt
+nnoremap <silent> <LocalLeader>3 3gt
+nnoremap <silent> <LocalLeader>4 4gt
+nnoremap <silent> <LocalLeader>8 5gt
+nnoremap <silent> <LocalLeader>9 6gt
+nnoremap <silent> <LocalLeader>0 7gt
 
 " backspace as <C-h>
 imap <C-h> <BS>
@@ -80,15 +90,6 @@ nnoremap <silent> <C-u> mzg~iw`z
 " exit terminal mode
 tnoremap <silent> <Esc> <C-\><C-n>
 
-" switch to tab N
-nnoremap <silent> <Leader>1 1gt
-nnoremap <silent> <Leader>2 2gt
-nnoremap <silent> <Leader>3 3gt
-nnoremap <silent> <Leader>4 4gt
-nnoremap <silent> <Leader>8 5gt
-nnoremap <silent> <Leader>9 6gt
-nnoremap <silent> <Leader>0 7gt
-
 " toggle folds - one keystroke is better than two
 nnoremap <M-f> za
 inoremap <M-f> <C-o>za
@@ -98,4 +99,5 @@ inoremap <C-q> <Esc>
 
 " clear search highlightings
 nnoremap <silent> <Esc> :nohlsearch<CR>
+
 
