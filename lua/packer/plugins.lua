@@ -54,9 +54,9 @@ require 'packer'.startup( function()
           event = { 'CursorHold', 'CursorMoved' },
           config = [[ require 'configs/matchup' ]] }
 
-    -- use { 'lewis6991/gitsigns.nvim',
-    --       event = { 'CursorHold', 'CursorMoved' },
-    --       config = [[ require 'configs/gitsigns' ]] }
+    use { 'lewis6991/gitsigns.nvim',
+          event = 'BufReadPre',
+          config = [[ require 'configs/gitsigns' ]] }
 
     use { 'famiu/bufdelete.nvim',
           cmd = { 'Bdelete', 'Bwipeout' },
@@ -104,6 +104,8 @@ require 'packer'.startup( function()
             CARGO_PROFILE_RELEASE_LTO=thin nix shell nixpkgs#{cargo,clang} -c cargo build --release
           ]] }
 
+    use { 'benknoble/vim-racket',
+          ft = 'racket' }
 
 
     -- Cmp

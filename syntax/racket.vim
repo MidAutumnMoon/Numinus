@@ -64,6 +64,12 @@ syntax keyword racketSyntax only-meta-in only-space-in
 syntax keyword racketSyntax for-syntax for-template for-label for-meta or-space
 
 
+" Concurrency and Parallelism : Threads
+syntax keyword racketFunc sleep
+
+" Concurrency and Parallelism : Futures
+syntax keyword racketFunc future touch
+
 " SRFI 54
 syntax keyword racketFunc cat
 

@@ -1,1 +1,1 @@
-vim.fn[ 'after_object#enable' ]( '=', ':', '#', '|', ';', '>' )
+vim.fn[ 'after_object#enable' ]( '=', ':', '#', '|', ';', ' ' )

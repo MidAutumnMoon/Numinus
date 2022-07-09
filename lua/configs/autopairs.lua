@@ -7,10 +7,10 @@ autopairs.setup {
     check_ts = true,
 
     disable_filetype = {
-    'TelescopePrompt',
+        'TelescopePrompt',
 
-    -- parinfer will take care of brackets
-    'racket', 'lisp', 'scheme',
+        -- parinfer will take care of brackets
+        'racket', 'lisp', 'scheme',
     },
 
     map_c_h = true,

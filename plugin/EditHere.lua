@@ -24,9 +24,7 @@ EditHere.related_to_cwd = function()
     local cwd = vim.fn.getcwd()
     local here = EditHere.dir_of_this_file()
 
-    return vim.fn.substitute(
-    here, cwd, '.', ''
-    )
+    return vim.fn.substitute( here, cwd, '.', '')
 end
 
 

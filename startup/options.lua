@@ -15,6 +15,9 @@ local options_list = {
     { 'showcmd',      true },
     { 'showmatch',    true },
 
+    { 'list', true },
+    { 'listchars', 'tab:▷ ,trail:·,extends:◣'},
+
     { 'backupdir', (path_cache..'/backup//') },
 
     { 'undofile', true },
@@ -71,8 +74,8 @@ local options_list = {
     { 'shell',     '/bin/sh' },
 }
 
-vim.opt.shortmess:append( 'IF' )
-vim.opt.formatoptions:append( '1,j' )
+vim.opt.shortmess:append 'IF'
+vim.opt.formatoptions:append '1,j'
 
 
 --

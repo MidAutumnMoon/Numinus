@@ -19,6 +19,7 @@ nnoremap <Leader>A ggVG
 nmap <A-a> $
 omap <A-a> $
 xmap <A-a> $
+imap <A-a> <C-o>$
 
 " <Enter> is easier to reach than %
 nmap <Enter> %
@@ -73,8 +74,7 @@ nnoremap <A-CR> <C-^>
 inoremap <A-CR> <C-o><C-^>
 
 " delete one character after cursor
-inoremap <C-v> <Del>
-inoremap <C-v> <Del>
+inoremap <A-h> <Del>
 
 " <tab> to cycle through all splits
 nnoremap <silent> <Tab> <C-w>w

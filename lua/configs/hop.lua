@@ -1,69 +1,38 @@
 local hop = require 'hop'
 local hint = require 'hop.hint'
 
-local direction_AC = hint.HintDirection.AFTER_CURSOR
-local direction_BC = hint.HintDirection.BEFORE_CURSOR
-
 
 hop.setup {
     char2_fallback_key = '<CR>'
 }
 
 
--- there's a bug in backwards inclusive jump
-vim.api.nvim_create_user_command( 'HopChar1CurrentLineBCinc',
-function( input )
-    hop.hint_char1(
-    {
-        direction = direction_BC,
-        current_line_only = true,
-        inclusive_jump = true
-    } )
-end,
-{ bang = true } )
+local keymap_option = { silent = true }
 
-vim.api.nvim_create_user_command( 'HopChar1CurrentLineACinc',
-function( input )
-    hop.hint_char1(
-    {
-        direction = direction_AC,
-        current_line_only = true,
-        inclusive_jump = true
-    } )
-end,
-{ bang = true } )
+vim.keymap.set( { 'o', 'x' }, 'f', '<CMD>HopChar1CurrentLineAC<CR>', keymap_option )
+vim.keymap.set( { 'o', 'x' }, 'F', '<CMD>HopChar1CurrentLineBC<CR>', keymap_option )
+
+vim.keymap.set( 'n', '<Leader><Leader>j', '<CMD>HopLineStartAC<CR>', keymap_option )
+vim.keymap.set( 'n', '<Leader><Leader>k', '<CMD>HopLineStartBC<CR>', keymap_option )
+
+vim.keymap.set( 'n', 'ss', '<CMD>HopChar2MW<CR>', keymap_option )
 
 
--- Keymaps
+vim.keymap.set( { 'o', 'x' }, 't',
+    function()
+        hop.hint_char1 {
+            direction = hint.AFTER_CURSOR,
+            current_line_only = true,
+            hint_offset = -1
+        }
+    end, keymap_option )
 
-vim.cmd [[
+vim.keymap.set( { 'o', 'x' }, 'T',
+    function()
+        hop.hint_char1 {
+            direction = hint.AFTER_CURSOR,
+            current_line_only = true,
+            hint_offset = 1
+        }
+    end, keymap_option )
 
-    " Leverage f/F and co-op with quick-scope
-
-    vmap <silent> f <CMD>HopChar1CurrentLineACinc<CR>
-    vmap <silent> F <CMD>HopChar1CurrentLineBC<CR>
-
-    omap <silent> f <CMD>HopChar1CurrentLineACinc<CR>
-    omap <silent> F <CMD>HopChar1CurrentLineBC<CR>
-
-    nmap <silent> t <CMD>HopChar1CurrentLineAC<CR>
-    nmap <silent> T <CMD>HopChar1CurrentLineBC<CR>
-
-    nmap <silent> <M-s> <CMD>HopChar1CurrentLine<CR>
-
-
-    " Mimic the familiar Easymotion keymaps
-
-    nmap <silent> <Leader><Leader>k <CMD>HopLineStartBC<CR>
-    nmap <silent> <Leader><Leader>j <CMD>HopLineStartAC<CR>
-
-    vmap <silent> <Leader><Leader>k <CMD>HopLineStartBC<CR>
-    vmap <silent> <Leader><Leader>j <CMD>HopLineStartAC<CR>
-
-
-    " Jump to anywhere
-
-    nmap <silent> ss    <CMD>HopChar2MW<CR>
-    nmap <silent> <C-s> <CMD>HopChar1MW<CR>
-
-]]

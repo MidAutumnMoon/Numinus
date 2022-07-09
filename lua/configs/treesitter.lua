@@ -5,17 +5,20 @@ require 'nvim-treesitter.configs'.setup {
         'nix',
         'vim',
 
+        'c',
+        'cpp',
         'erlang',
         'rust',
         'python',
+        'go',
 
         'bash',
         'fish',
         'commonlisp',
+        'scheme',
 
         'javascript',
         'typescript',
-        'tsx',
 
         'yaml',
         'toml',
@@ -84,6 +87,7 @@ require 'nvim-treesitter.configs'.setup {
 
     rainbow = {
         enable = true,
+        max_file_lines = 3000,
     },
 
 }

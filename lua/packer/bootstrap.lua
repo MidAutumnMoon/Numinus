@@ -2,7 +2,7 @@ local packer_repo =
     'https://github.com/wbthomason/packer.nvim'
 
 local data_path =
-    vim.fn.stdpath( 'data' )
+    vim.fn.stdpath 'data'
 
 local install_path =
     data_path .. '/site/pack/packer/start/packer.nvim'

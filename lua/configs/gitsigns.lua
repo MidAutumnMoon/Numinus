@@ -8,8 +8,4 @@ require 'gitsigns'.setup {
 
     word_diff = true,
 
-    yadm = {
-        enable = false,
-    }
-
 }
