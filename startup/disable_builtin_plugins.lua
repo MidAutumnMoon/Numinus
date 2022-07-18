@@ -21,7 +21,8 @@ local disabled_plugins = {
     'man',
     'tutor_mode_plugin',
     'remote_plugins',
-    'shada_plugin'
+    'shada_autoload',
+    'shada_plugin',
 }
 
 
