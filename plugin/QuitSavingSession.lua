@@ -3,8 +3,9 @@
 --
 --    Save a session file automatically when exit Neovim.
 --
--- - let g:quit_with_session = 1 to activate this plugin,
---   intended to be used with .exrc
+-- used variables:
+--  - quit_saving_session
+--  - quit_saving_session_fname
 --
 
 
@@ -13,12 +14,17 @@ if vim.g.quit_saving_session ~= 1 then
 end
 
 
-local cwd = vim.fn.getcwd()
+local session_file_name =
+    vim.g.quit_saving_session_fname or 'Session.vim'
 
-local quit_with_session = function()
-    vim.cmd 'wall'
-    vim.cmd ('mksession!' .. ' ' .. cwd .. '/Session.teapot.vim')
-    vim.cmd 'qall'
+local session_file_path =
+    vim.fn.getcwd() .. '/' .. session_file_name
+
+local make_session = function()
+    vim.cmd ( 'mksession!' .. ' ' .. session_file_path )
 end
 
-vim.keymap.set( 'n', '<Leader>q', quit_with_session, { silent = true } )
+vim.api.nvim_create_autocmd( 'ExitPre', {
+    pattern = '*',
+    callback = make_session
+} )

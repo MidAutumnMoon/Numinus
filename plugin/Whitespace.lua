@@ -16,7 +16,7 @@ end
 
 vim.keymap.set( 'n', '<LocalLeader>b', trimming, { silent = true; } )
 
-vim.api.nvim_create_autocmd( { 'ExitPre' }, {
+vim.api.nvim_create_autocmd( 'ExitPre', {
     pattern = '*',
     callback = trimming
 } )
