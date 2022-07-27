@@ -100,4 +100,5 @@ inoremap <C-q> <Esc>
 " clear search highlightings
 nnoremap <silent> <Esc> :nohlsearch<CR>
 
-
+" Find files
+nnoremap <silent> gF :vertical wincmd f<CR>
