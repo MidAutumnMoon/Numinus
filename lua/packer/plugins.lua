@@ -76,6 +76,9 @@ require 'packer'.startup( function()
           config = [[ require 'configs/toggleterm' ]],
           keys = '<C-`>' }
 
+    use { 'nvim-lualine/lualine.nvim',
+          config = [[ require 'configs/lualine/setup' ]] }
+
 
 
     -- Navigating
