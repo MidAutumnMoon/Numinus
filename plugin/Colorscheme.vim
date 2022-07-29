@@ -25,7 +25,7 @@ let s:white = '#bfc7d5'
 let s:black = '#292d3e'
 
 let s:grey_light   = '#424760'
-let s:grey_cursor  = '#2c323c'
+let s:grey_cursor  = '#232831'
 let s:grey_comment = '#697098'
 let s:grey_menu    = '#3e4452'
 let s:grey_special = '#3b4048'
