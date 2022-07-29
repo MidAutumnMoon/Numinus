@@ -1,16 +1,13 @@
 local cmp = require 'cmp'
-local cmp_buffer = require 'cmp_buffer'
 local luasnip = require 'luasnip'
 
 local utils = require 'configs/cmp/utils'
-
 
 
 --
 -- Setup LSP
 --
 require 'configs/lsp/setup'
-
 
 
 --
@@ -23,19 +20,13 @@ cmp.setup {
 
     sources = cmp.config.sources( {
         { name = 'nvim_lsp' },
+        { name = 'nvim_lsp_signature_help' },
         { name = 'luasnip' },
         { name = 'nvim_lua' },
         { name = 'path' },
-        { name = 'buffer', option = {
-            -- all visible buffers
-            get_bufnrs = function()
-                local bufs = {}
-                for _, win in ipairs( vim.api.nvim_list_wins() ) do
-                    bufs[ vim.api.nvim_win_get_buf(win) ] = true
-                end
-                return vim.tbl_keys( bufs )
-            end
-        } },
+        { name = 'buffer',
+          option = { get_bufnrs = utils.visible_buffers }
+        },
     } ),
 
     --

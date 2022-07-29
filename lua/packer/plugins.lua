@@ -143,6 +143,9 @@ require 'packer'.startup( function()
           module = 'cmp_cmdline',
           after = 'nvim-cmp' }
 
+    use { 'hrsh7th/cmp-nvim-lsp-signature-help',
+          module = 'cmp_nvim_lsp_signature_help',
+          after = 'nvim-cmp' }
 
 
     -- Treesitter
