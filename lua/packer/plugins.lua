@@ -152,11 +152,15 @@ require 'packer'.startup( function()
 
     use { 'nvim-treesitter/nvim-treesitter',
           run = ':TSUpdate',
-          config = [[ require 'configs/treesitter' ]] }
+          as = 'treesitter',
+          config = [[ require 'configs/treesitter/setup' ]] }
 
     use { 'p00f/nvim-ts-rainbow' }
 
     use { 'nvim-treesitter/nvim-treesitter-textobjects' }
+
+    use { 'nvim-treesitter/nvim-treesitter-context',
+          config = [[ require 'configs/treesitter/context' ]] }
 
 
 

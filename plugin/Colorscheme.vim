@@ -218,6 +218,9 @@ endfunction
   call s:hil( 'QuickScopePrimary',   { 'fg': s:pink, 'effects': 'underline,bold' } )
   call s:hil( 'QuickScopeSecondary', { 'fg': s:orange, 'effects': 'underline,bold' } )
 
+  " treesitter-context
+  call s:hil( 'TreesitterContext', { 'bg': s:grey_cursor, 'effects': 'italic' } )
+
 " }}}
 
 " ...of some random things... {{{
