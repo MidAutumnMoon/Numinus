@@ -8,33 +8,31 @@ local plugins = {
   -- Editing
   --
 
-  {
-    "tpope/vim-repeat",
+  { "tpope/vim-repeat",
     lazy = false,
   },
 
-  { "tommcdo/vim-exchange" },
-
-  { "wellle/targets.vim" },
-
-  {
-    "numToStr/Comment.nvim",
-    lazy = false,
-    config = function()
-      require 'Comment' .setup()
-    end
+  { "tommcdo/vim-exchange",
+    keys = { "cx" },
   },
 
-  {
-    "junegunn/vim-after-object",
+  { "wellle/targets.vim",
+    lazy = false,
+  },
+
+  { "numToStr/Comment.nvim",
+    lazy = false,
+    opts = {},
+  },
+
+  { "junegunn/vim-after-object",
     keys = "ca",
     config = function()
       vim.fn["after_object#enable"]( "=", ":", "|", ";", " " )
     end
   },
 
-  {
-    "junegunn/vim-easy-align",
+  { "junegunn/vim-easy-align",
     keys = "ga",
     config = function()
       local set = vim.keymap.set
@@ -44,28 +42,18 @@ local plugins = {
     end
   },
 
-  {
-    "echasnovski/mini.surround",
-    event = {
-      'CursorMoved',
-      'CursorHold'
-    },
+  { "echasnovski/mini.surround",
+    event = { 'CursorMoved', 'CursorHold' },
     keys = { "ys", "cs", "ds" },
-    config = function()
-      require "config.mini_surround"
-    end
+    opts = {}
   },
 
-  {
-    "windwp/nvim-autopairs",
+  { "windwp/nvim-autopairs",
     event = "InsertEnter",
-    config = function()
-      require "config.autopairs"
-    end
+    config = function() require "config.autopairs" end
   },
 
-  {
-    "eraserhd/parinfer-rust",
+  { "eraserhd/parinfer-rust",
     ft = { "racket", "lisp", "scheme" },
     build = {
       "cargo build --release",
@@ -78,42 +66,29 @@ local plugins = {
   -- Navigating
   --
 
-  {
-    "ggandor/leap.nvim",
+  { "ggandor/leap.nvim",
     lazy = false,
     dependencies = {
       "tpope/vim-repeat",
     },
-    config = function()
-      require "config.leap"
-    end
+    config = function() require "config.leap" end
   },
 
-  {
-    "kevinhwang91/nvim-fFHighlight",
+  { "kevinhwang91/nvim-fFHighlight",
     keys = { "f", "F" },
-    config = function()
-      require "fFHighlight" .setup {
-        number_hint_threshold = 2,
-        prompt_sign_define = { text = "f" }
-      }
-    end
+    opts = {
+      number_hint_threshold = 2,
+      prompt_sign_define = { text = "f" },
+    }
   },
 
-  {
-    "nvim-telescope/telescope.nvim",
-    event = {
-      "CursorMoved",
-      "CursorHold"
-    },
+  { "nvim-telescope/telescope.nvim",
+    event = { "CursorMoved", "CursorHold" },
     cmd = "Telescope",
-    config = function()
-      require "config.telescope"
-    end
+    config = function() require "config.telescope" end
   },
 
-  {
-    "nvim-neo-tree/neo-tree.nvim",
+  { "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -121,85 +96,46 @@ local plugins = {
       "nvim-tree/nvim-web-devicons"
     },
     cmd = "Neotree",
-    event = {
-      "CursorMoved",
-      "CursorHold"
-    },
-    config = function()
-      require "config.neo-tree"
-    end
+    event = { "CursorMoved", "CursorHold" },
+    config = function() require "config.neo-tree" end
   },
 
-  {
-    "chentoast/marks.nvim",
-    event = {
-      "CursorHold",
-      "CursorMoved"
-    },
-    config = function()
-      require "config.marks"
-    end
+  { "chentoast/marks.nvim",
+    event = { "CursorHold", "CursorMoved" },
+    config = function() require "config.marks" end
   },
 
   --
   -- QoL
   --
 
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    event = {
-      'CursorHold',
-      'CursorMoved'
-    },
-    config = function()
-      require 'ibl' .setup {
-        indent = { char = "|" }
-      }
-    end
+  { "lukas-reineke/indent-blankline.nvim",
+    event = { 'CursorHold', 'CursorMoved' },
+    main = "ibl",
+    opts = { },
   },
 
-  {
-    "lewis6991/gitsigns.nvim",
+  { "lewis6991/gitsigns.nvim",
     name = "gitsigns",
     event = "BufReadPost",
-    config = function()
-      require "config.gitsigns"
-    end
+    config = function() require "config.gitsigns" end
   },
 
-  {
-    "nvim-lualine/lualine.nvim",
+  { "nvim-lualine/lualine.nvim",
     lazy = false,
     dependencies = {
       "nvim-tree/nvim-web-devicons",
       "Isrothy/lualine-diagnostic-message"
     },
-    config = function()
-      require "config.lualine"
-    end
-  },
-
-  {
-    "famiu/bufdelete.nvim",
-    cmd = {
-      "Bdelete",
-      "Bwipeout"
-    },
-    init = function()
-      vim.cmd [[ nnoremap <silent> <C-q> :Bdelete<CR> ]]
-    end
+    config = function() require "config.lualine" end
   },
 
   --
   -- Cmp & LSP
   --
 
-  {
-    "hrsh7th/nvim-cmp",
-    event = {
-      "InsertEnter",
-      "BufReadPost"
-    },
+  { "hrsh7th/nvim-cmp",
+    event = { "InsertEnter", "BufReadPost" },
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
@@ -207,31 +143,23 @@ local plugins = {
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline"
     },
-    config = function()
-      require "config.cmp"
-    end
+    config = function() require "config.cmp" end
   },
 
-  {
-    "neovim/nvim-lspconfig",
+  { "neovim/nvim-lspconfig",
     lazy = false,
-    config = function()
-      require "config.lspconfig"
-    end
+    config = function() require "config.lspconfig" end
   },
 
   --
   -- Treesitter
   --
 
-  {
-    "nvim-treesitter/nvim-treesitter",
+  { "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     name = "treesitter",
     lazy = false,
-    config = function()
-      require "config.treesitter"
-    end
+    config = function() require "config.treesitter" end
   },
 
   { "nvim-treesitter/nvim-treesitter-textobjects" },
@@ -239,24 +167,14 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter-context",
     event = { 'CursorMoved' },
-    config = function()
-      require'treesitter-context'.setup {
-        enable = true,
-      }
-    end
+    opts = {},
   },
 
   --
   -- Languages
   --
 
-  {
-    "NoahTheDuke/vim-just",
-    ft = { "just" },
-  },
-
-  {
-    "isobit/vim-caddyfile",
+  { "isobit/vim-caddyfile",
     ft = { "caddyfile" },
   },
 
@@ -264,12 +182,9 @@ local plugins = {
   -- Colorschemes
   --
 
-  {
-    "folke/tokyonight.nvim",
+  { "folke/tokyonight.nvim",
     lazy = false,
-    config = function()
-      require "config.tokyonight"
-    end
+    config = function() require "config.tokyonight" end
   },
 
   --
@@ -327,6 +242,4 @@ local config = {
 require "lazy" .setup( plugins, config )
 
 
-vim.cmd [[
-  command! P :Lazy sync
-]]
+vim.cmd [[ command! P :Lazy sync ]]
