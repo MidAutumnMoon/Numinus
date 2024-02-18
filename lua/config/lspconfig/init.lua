@@ -40,6 +40,12 @@ lsp_may_setup( lspconfig.elixirls, {
   return have_executables( "elixir", "elixir-ls" )
 end )
 
+lsp_may_setup( lspconfig.rubocop, {
+  single_file_support = true
+}, function()
+    return have_executables( "rubocop" )
+end )
+
 
 vim.diagnostic.config {
   update_in_insert = true,
