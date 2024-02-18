@@ -14,14 +14,14 @@ neotree.setup {
     bind_to_cwd = true,
     window = {
       position = "left",
-      width = 28
+      width = 30
     },
   },
 
   buffers = {
     follow_current_file = { enabled = true },
     window = {
-      width = 28,
+      width = 30,
     },
   },
 
