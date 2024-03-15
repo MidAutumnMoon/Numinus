@@ -9,7 +9,7 @@ require "nvim-treesitter.configs" .setup {
     "c",
     "rust",
     "python",
-    "racket",
+    "ruby",
 
     "json",
     "yaml",
