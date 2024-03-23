@@ -15,6 +15,7 @@ require "nvim-treesitter.configs" .setup {
     "yaml",
     "toml",
     "ninja",
+    "sql",
   },
 
   highlight = {
