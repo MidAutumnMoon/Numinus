@@ -48,6 +48,11 @@ local plugins = {
     opts = {}
   },
 
+  { "echasnovski/mini.move",
+    lazy = false,
+    opts = {},
+  },
+
   { "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = function() require "config.autopairs" end
@@ -183,8 +188,15 @@ local plugins = {
   --
 
   { "folke/tokyonight.nvim",
+    enabled = false,
     lazy = false,
     config = function() require "config.tokyonight" end
+  },
+
+  { "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = false,
+    config = function() require "config.catppuccin" end
   },
 
   --
