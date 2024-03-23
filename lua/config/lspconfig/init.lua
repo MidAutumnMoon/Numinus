@@ -30,16 +30,6 @@ lsp_may_setup( lspconfig.rust_analyzer, { }, function()
 end )
 
 
-lsp_may_setup( lspconfig.racket_langserver, {}, function()
-  return have_executables( "racket" )
-end )
-
-lsp_may_setup( lspconfig.elixirls, {
-  cmd = { "elixir-ls" }
-}, function()
-  return have_executables( "elixir", "elixir-ls" )
-end )
-
 lsp_may_setup( lspconfig.rubocop, {
   single_file_support = true
 }, function()
