@@ -7,6 +7,7 @@ neotree.setup {
   filesystem = {
     follow_current_file = {
       enabled = true,
+      leave_dirs_open = true,
     },
     filtered_items = {
       visible = true
@@ -14,14 +15,14 @@ neotree.setup {
     bind_to_cwd = true,
     window = {
       position = "left",
-      width = 30
+      width = 22
     },
   },
 
   buffers = {
     follow_current_file = { enabled = true },
     window = {
-      width = 30,
+      width = 22,
     },
   },
 
