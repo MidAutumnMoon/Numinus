@@ -7,8 +7,7 @@ vim.filetype.add {
     timer = "systemd",
 
     opml = "xml",
-
-    just = "just",
+    mobileconfig = "xml",
   },
 
   filename = {

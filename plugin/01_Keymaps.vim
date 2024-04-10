@@ -31,10 +31,10 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [b :bprev<CR>
 
 " switch tabs
-nnoremap <silent> <Up> :tabedit<CR>
-nnoremap <silent> <Down> :tabclose<CR>
-nnoremap <silent> <Right> :tabnext<CR>
-nnoremap <silent> <Left> :tabprevious<CR>
+nnoremap <silent> <A-t> :tabedit<CR>
+nnoremap <silent> <A-w> :tabclose<CR>
+nnoremap <silent> <A-]> :tabnext<CR>
+nnoremap <silent> <A-[> :tabprevious<CR>
 
 " move up and down while typing
 cnoremap <A-j> <Down>

@@ -135,6 +135,12 @@ local plugins = {
     config = function() require "config.lualine" end
   },
 
+  { "nanozuki/tabby.nvim",
+    lazy = false,
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = function() require "config.tabby" end
+  },
+
   --
   -- Cmp & LSP
   --
@@ -172,7 +178,9 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter-context",
     event = { 'CursorMoved' },
-    opts = {},
+    opts = {
+      max_lines = 6,
+    },
   },
 
   --

@@ -67,7 +67,7 @@ cmp.setup.cmdline( ":", {
   sources = {
     { name = "path" },
     { name = "cmdline" },
-    Sources.buffer
+    -- Sources.buffer
   }
 } )
 
