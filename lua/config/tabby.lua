@@ -14,8 +14,8 @@ local theme = {
 
 local function build_tab_devicon( tab )
   local buf = tab.current_win().buf()
-  local filename = vim.api.nvim_buf_get_name( buf.id )
-  local icon, color = devicons.get_icon_color( filename )
+  local ftype = vim.bo[buf.id].filetype
+  local icon, color = devicons.get_icon_color_by_filetype( ftype )
   local hl = nil
   if icon == nil then
     local text_icon = devicons.get_icon_by_filetype( "txt" )

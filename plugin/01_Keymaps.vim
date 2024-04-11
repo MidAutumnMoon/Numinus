@@ -35,6 +35,16 @@ nnoremap <silent> <A-t> :tabedit<CR>
 nnoremap <silent> <A-w> :tabclose<CR>
 nnoremap <silent> <A-]> :tabnext<CR>
 nnoremap <silent> <A-[> :tabprevious<CR>
+nnoremap <silent> <A-1> 1gt
+nnoremap <silent> <A-2> 2gt
+nnoremap <silent> <A-3> 3gt
+nnoremap <silent> <A-4> 4gt
+nnoremap <silent> <A-5> 5gt
+nnoremap <silent> <A-6> 6gt
+nnoremap <silent> <A-7> 7gt
+nnoremap <silent> <A-8> 8gt
+nnoremap <silent> <A-9> 9gt
+nnoremap <silent> <A-0> :tablast<CR>
 
 " move up and down while typing
 cnoremap <A-j> <Down>
