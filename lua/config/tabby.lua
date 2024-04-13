@@ -39,7 +39,7 @@ require 'tabby.tabline' .set( function(line) return {
       tab.name(),
       line.sep( '|', hl, theme.fill ),
       hl = hl,
-      margin = '   ',
+      margin = '  ',
     }
   end ),
 
