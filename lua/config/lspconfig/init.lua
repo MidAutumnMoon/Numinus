@@ -36,6 +36,15 @@ lsp_may_setup( lspconfig.rubocop, {
     return have_executables( "rubocop" )
 end )
 
+lsp_may_setup( lspconfig.denols, {
+  single_file_support = true
+}, function()
+  return have_executables( "deno" )
+end )
+
+vim.g.markdown_fenced_languages = {
+  "ts=typescript"
+}
 
 vim.diagnostic.config {
   update_in_insert = true,
