@@ -10,6 +10,7 @@ require "nvim-treesitter.configs" .setup {
     "rust",
     "python",
     "ruby",
+    "nix",
 
     "json",
     "yaml",
@@ -28,7 +29,10 @@ require "nvim-treesitter.configs" .setup {
 
   indent = {
     enable = true,
-    disable = { "ruby" },
+    disable = {
+      "ruby",
+      "nix"
+    },
   },
 
   matchup = {
