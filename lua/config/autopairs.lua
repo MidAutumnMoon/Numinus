@@ -24,6 +24,7 @@ get_rule( "'" )[1].not_filetypes = {
   "lisp",
   "racket",
   "rust",
+  "nix"
 }
 
 

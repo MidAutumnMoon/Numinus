@@ -179,7 +179,7 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter-context",
     event = { 'CursorMoved' },
     opts = {
-      max_lines = 6,
+      max_lines = 3,
     },
   },
 
