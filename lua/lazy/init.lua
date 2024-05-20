@@ -20,11 +20,6 @@ local plugins = {
     lazy = false,
   },
 
-  { "numToStr/Comment.nvim",
-    lazy = false,
-    opts = {},
-  },
-
   { "junegunn/vim-after-object",
     keys = "ca",
     config = function()
