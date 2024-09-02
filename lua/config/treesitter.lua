@@ -12,13 +12,20 @@ require "nvim-treesitter.configs" .setup {
     "ruby",
     "nix",
     "javascript",
+    "typescript",
     "css",
+    "html",
+    "markdown",
 
     "json",
     "yaml",
     "toml",
     "ninja",
     "sql",
+    "just",
+    "hlsl",
+    "glsl",
+    "terraform",
   },
 
   highlight = {
@@ -32,8 +39,7 @@ require "nvim-treesitter.configs" .setup {
   indent = {
     enable = true,
     disable = {
-      "ruby",
-      "nix"
+      "ruby", "nix", "rust"
     },
   },
 

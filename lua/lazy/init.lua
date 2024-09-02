@@ -53,6 +53,11 @@ local plugins = {
     config = function() require "config.autopairs" end
   },
 
+  { "windwp/nvim-ts-autotag",
+    opts = {},
+    lazy = false,
+  },
+
   { "eraserhd/parinfer-rust",
     ft = { "racket", "lisp", "scheme" },
     build = {

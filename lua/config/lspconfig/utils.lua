@@ -46,6 +46,7 @@ M.lsp_setup = function( lsp, overrides )
     on_attach = function( client, bufnr )
       setup_keymap( bufnr )
       -- float_diagnostic( bufnr )
+      -- vim.lsp.inlay_hint.enable( true, { bufnr = bufnr } )
     end
   }
   local extended = vim.tbl_deep_extend( "force", defaults, overrides )

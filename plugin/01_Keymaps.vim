@@ -79,3 +79,6 @@ tnoremap <silent> <Esc> <C-\><C-n>
 
 " clear search highlightings
 nnoremap <silent> <Esc> :nohlsearch<CR>
+
+" F1 sits too close to F2 (which is rename symbol using LSP)
+map <F1> <Nop>

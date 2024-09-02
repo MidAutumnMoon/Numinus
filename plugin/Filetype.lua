@@ -8,6 +8,10 @@ vim.filetype.add {
 
     opml = "xml",
     mobileconfig = "xml",
+
+    hlsl = "hlsl",
+
+    mdx = "markdown",
   },
 
   filename = {
