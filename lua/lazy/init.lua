@@ -105,11 +105,6 @@ local plugins = {
     config = function() require "config.neo-tree" end
   },
 
-  { "chentoast/marks.nvim",
-    event = { "CursorHold", "CursorMoved" },
-    config = function() require "config.marks" end
-  },
-
   --
   -- QoL
   --
