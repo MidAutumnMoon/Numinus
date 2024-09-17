@@ -13,6 +13,7 @@ require "nvim-treesitter.configs" .setup {
     "nix",
     "javascript",
     "typescript",
+    "tsx",
     "css",
     "html",
     "markdown",
