@@ -8,16 +8,7 @@ local lsp_setup = lsp_utils.lsp_setup
 -- Setups
 --
 
-local nil_settings = {
-  nix = { flake = {
-    autoArchive = false,
-    autoEvalInputs = false,
-  } }
-}
-
-lsp_setup( lspconfig.nil_ls, {
-  settings = { ["nil"] = nil_settings }
-} )
+lsp_setup( lspconfig.nixd, { } )
 
 lsp_setup( lspconfig.rust_analyzer, { } )
 
