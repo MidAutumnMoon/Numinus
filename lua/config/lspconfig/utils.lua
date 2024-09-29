@@ -34,7 +34,6 @@ end
 --   } )
 -- end
 
-
 M.lsp_setup = function( lsp, overrides )
   local cmp_nvim_lsp = require "cmp_nvim_lsp"
 
@@ -52,26 +51,5 @@ M.lsp_setup = function( lsp, overrides )
   local extended = vim.tbl_deep_extend( "force", defaults, overrides )
   lsp.setup( extended )
 end
-
-
-M.lsp_may_setup = function( lsp, overrides, condition )
-  if condition() then
-    M.lsp_setup( lsp, overrides )
-  end
-end
-
-
-M.have_executables = function( ... )
-  local not_have = 0
-  for _, name in pairs( { ... } ) do
-    -- 0 for no such a executable
-    -- 1 for the opposite
-    if vim.fn.executable( name ) == 0 then
-      not_have = not_have + 1
-    end
-  end
-  return not_have == 0
-end
-
 
 return M

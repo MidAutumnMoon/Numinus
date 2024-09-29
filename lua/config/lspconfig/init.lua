@@ -1,10 +1,7 @@
 local lspconfig = require "lspconfig"
-
 local lsp_utils = require "config.lspconfig.utils"
 
 local lsp_setup = lsp_utils.lsp_setup
-local lsp_may_setup = lsp_utils.lsp_may_setup
-local have_executables = lsp_utils.have_executables
 
 
 --
@@ -18,29 +15,24 @@ local nil_settings = {
   } }
 }
 
-lsp_may_setup( lspconfig.nil_ls, {
+lsp_setup( lspconfig.nil_ls, {
   settings = { ["nil"] = nil_settings }
-}, function()
-  return have_executables( "nil" )
-end )
+} )
 
+lsp_setup( lspconfig.rust_analyzer, { } )
 
-lsp_may_setup( lspconfig.rust_analyzer, { }, function()
-  return have_executables( "cargo", "rustc", "rust-analyzer" )
-end )
-
-
-lsp_may_setup( lspconfig.rubocop, {
+lsp_setup( lspconfig.rubocop, {
   single_file_support = true
-}, function()
-    return have_executables( "rubocop" )
-end )
+} )
 
-lsp_may_setup( lspconfig.denols, {
+lsp_setup( lspconfig.ruby_lsp, {
+  single_file_support = true,
+} )
+
+lsp_setup( lspconfig.denols, {
   single_file_support = true
-}, function()
-  return have_executables( "deno" )
-end )
+} )
+
 
 vim.g.markdown_fenced_languages = {
   "ts=typescript"
