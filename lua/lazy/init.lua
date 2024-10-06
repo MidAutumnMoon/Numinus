@@ -186,6 +186,10 @@ local plugins = {
     ft = { "caddyfile" },
   },
 
+  { "imsnif/kdl.vim",
+    ft = { "kdl" }
+  },
+
   --
   -- Colorschemes
   --
