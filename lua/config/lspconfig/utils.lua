@@ -1,25 +1,22 @@
 local M = {}
 
-
-local Keymaps = {
-  ["gd"] = vim.lsp.buf.definition,
-  ["gi"] = vim.lsp.buf.implementation,
-  ["gD"] = vim.lsp.buf.declaration,
-  ["gr"] = vim.lsp.buf.references,
-  ["<F2>"] = vim.lsp.buf.rename,
-  ["K"] = vim.lsp.buf.hover,
-  ["]d"] = vim.diagnostic.goto_next,
-  ["[d"] = vim.diagnostic.goto_prev,
-}
-
-local function setup_keymap( bufnr )
-  local keyopt = {
-    silent = true,
-    buffer = bufnr,
-  }
-  for key, map in pairs( Keymaps ) do
-    vim.keymap.set( "n", key, map, keyopt )
-  end
+local function SetKeymap( buffer )
+    local keymaps = {
+        ["gd"] = vim.lsp.buf.definition,
+        ["gi"] = vim.lsp.buf.implementation,
+        ["gD"] = vim.lsp.buf.declaration,
+        ["gr"] = vim.lsp.buf.references,
+        ["<F2>"] = vim.lsp.buf.rename,
+        ["K"] = vim.lsp.buf.hover,
+        ["]d"] = vim.diagnostic.goto_next,
+        ["[d"] = vim.diagnostic.goto_prev,
+    }
+    for key, map in pairs( keymaps ) do
+        vim.keymap.set( "n", key, map, {
+            silent = true,
+            buffer = buffer,
+        } )
+    end
 end
 
 -- local function float_diagnostic( bufnr )
@@ -43,7 +40,7 @@ M.lsp_setup = function( lsp, overrides )
   local defaults = {
     capabilities = caps,
     on_attach = function( client, bufnr )
-      setup_keymap( bufnr )
+      SetKeymap( bufnr )
       -- float_diagnostic( bufnr )
       -- vim.lsp.inlay_hint.enable( true, { bufnr = bufnr } )
     end
@@ -51,5 +48,6 @@ M.lsp_setup = function( lsp, overrides )
   local extended = vim.tbl_deep_extend( "force", defaults, overrides )
   lsp.setup( extended )
 end
+
 
 return M

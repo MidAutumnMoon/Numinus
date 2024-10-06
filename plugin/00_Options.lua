@@ -31,7 +31,6 @@ local Options = {
   smarttab = true,
   expandtab = true,
   autoindent = true,
-  smartindent = true,
 
   completeopt = "menuone,preview,longest",
   diffopt = "filler,vertical",
@@ -75,6 +74,10 @@ local Options = {
   shell = "/bin/sh"
 
 }
+
+vim.cmd [[
+    filetype plugin indent on
+]]
 
 for option, value in pairs( Options ) do
   vim.opt[option] = value

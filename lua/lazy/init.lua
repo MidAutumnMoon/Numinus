@@ -1,20 +1,22 @@
-require 'lazy.bootstrap'
+require "lazy.bootstrap"
 
 -- Plugins
 
 local plugins = {
 
-  --
-  -- Editing
-  --
+    --
+    -- Editing
+    --
 
-  { "tpope/vim-repeat",
-    lazy = false,
-  },
+    {
+        "tpope/vim-repeat",
+        lazy = false,
+    },
 
-  { "tommcdo/vim-exchange",
-    keys = { "cx" },
-  },
+    {
+        "tommcdo/vim-exchange",
+        keys = { "cx" },
+    },
 
   { "wellle/targets.vim",
     lazy = false,
@@ -58,26 +60,30 @@ local plugins = {
     lazy = false,
   },
 
-  { "eraserhd/parinfer-rust",
-    ft = { "racket", "lisp", "scheme" },
-    build = {
-      "cargo build --release",
-      "rm -fr target/release/build/",
-      "rm -fr target/release/deps/",
+    {
+        "eraserhd/parinfer-rust",
+        ft = {
+            "racket",
+            "lisp",
+            "scheme"
+        },
+        build = {
+            "cargo build --release",
+            "rm -fr target/release/build/",
+            "rm -fr target/release/deps/",
+        },
     },
-  },
 
   --
   -- Navigating
   --
 
-  { "ggandor/leap.nvim",
-    lazy = false,
-    dependencies = {
-      "tpope/vim-repeat",
+    {
+        "ggandor/leap.nvim",
+        lazy = false,
+        dependencies = { "tpope/vim-repeat" },
+        config = function() require "config.leap" end
     },
-    config = function() require "config.leap" end
-  },
 
   { "kevinhwang91/nvim-fFHighlight",
     keys = { "f", "F" },

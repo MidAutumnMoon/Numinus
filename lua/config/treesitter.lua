@@ -1,52 +1,54 @@
 require "nvim-treesitter.configs" .setup {
 
-  ensure_installed = {
-    "vim",
-    "lua",
-    "bash",
-    "fish",
+    ensure_installed = {
+        "vim",
+        "lua",
+        "bash",
+        "fish",
 
-    "c",
-    "rust",
-    "python",
-    "ruby",
-    "nix",
-    "javascript",
-    "typescript",
-    "tsx",
-    "css",
-    "html",
-    "markdown",
+        "c",
+        "rust",
+        "python",
+        "ruby",
+        "nix",
+        "javascript",
+        "typescript",
+        "tsx",
+        "css",
+        "html",
+        "markdown",
 
-    "json",
-    "yaml",
-    "toml",
-    "ninja",
-    "sql",
-    "just",
-    "hlsl",
-    "glsl",
-    "terraform",
-  },
-
-  highlight = {
-    enable = true
-  },
-
-  incremental_selection = {
-    enable = true
-  },
-
-  indent = {
-    enable = true,
-    disable = {
-      "ruby", "nix", "rust"
+        "json",
+        "yaml",
+        "toml",
+        "ninja",
+        "sql",
+        "just",
+        "hlsl",
+        "glsl",
+        "terraform",
     },
-  },
 
-  matchup = {
-    enable = true
-  },
+    highlight = {
+        enable = true
+    },
+
+    incremental_selection = {
+        enable = true
+    },
+
+    indent = {
+        enable = false,
+        disable = {
+            "ruby",
+            "nix",
+            "rust"
+        },
+    },
+
+    matchup = {
+        enable = true
+    },
 
 }
 
