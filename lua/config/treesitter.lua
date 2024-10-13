@@ -5,6 +5,7 @@ require "nvim-treesitter.configs" .setup {
         "lua",
         "bash",
         "fish",
+        "tcl",
 
         "c",
         "rust",

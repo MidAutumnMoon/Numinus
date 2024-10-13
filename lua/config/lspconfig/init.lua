@@ -16,9 +16,9 @@ lsp_setup( lspconfig.rubocop, {
   single_file_support = true
 } )
 
-lsp_setup( lspconfig.ruby_lsp, {
-  single_file_support = true,
-} )
+-- lsp_setup( lspconfig.ruby_lsp, {
+--   single_file_support = true,
+-- } )
 
 lsp_setup( lspconfig.denols, {
   single_file_support = true
