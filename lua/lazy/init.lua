@@ -111,9 +111,11 @@ local plugins = {
     config = function() require "config.neo-tree" end
   },
 
-  --
-  -- QoL
-  --
+    --
+    -- QoL
+    --
+
+    { "tpope/vim-eunuch", lazy = false, },
 
   { "lukas-reineke/indent-blankline.nvim",
     event = { 'CursorHold', 'CursorMoved' },
