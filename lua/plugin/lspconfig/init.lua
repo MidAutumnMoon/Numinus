@@ -1,5 +1,5 @@
 local lspconfig = require "lspconfig"
-local lsp_utils = require "config.lspconfig.utils"
+local lsp_utils = require "plugin.lspconfig.utils"
 
 local lsp_setup = lsp_utils.lsp_setup
 

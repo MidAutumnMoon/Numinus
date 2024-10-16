@@ -1,4 +1,16 @@
-require "lazy.bootstrap"
+--
+-- Bootstrap Lazy.nvim
+--
+
+(function()
+
+    local stdpath = vim.fn.stdpath
+    local lazy_path = stdpath( 'data' ) .. "/lazy/lazy.nvim"
+
+    vim.opt.rtp:prepend( lazy_path )
+
+end)()
+
 
 -- Plugins
 
@@ -58,7 +70,9 @@ local Plugins = {
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
-        config = function() require "config.autopairs" end
+        config = function()
+            require "plugin.autopairs"
+        end
     },
 
     {
@@ -90,7 +104,7 @@ local Plugins = {
         lazy = false,
         dependencies = { "tpope/vim-repeat" },
         config = function()
-            require "config.leap"
+            require "plugin.leap"
         end
     },
 
@@ -108,7 +122,7 @@ local Plugins = {
         event = { "CursorMoved", "CursorHold" },
         cmd = "Telescope",
         config = function()
-            require "config.telescope"
+            require "plugin.telescope"
         end
     },
 
@@ -122,7 +136,9 @@ local Plugins = {
         },
         cmd = "Neotree",
         event = { "CursorMoved", "CursorHold" },
-        config = function() require "config.neo-tree" end
+        config = function()
+            require "plugin.neo-tree"
+        end
     },
 
     --
@@ -145,7 +161,9 @@ local Plugins = {
         "lewis6991/gitsigns.nvim",
         name = "gitsigns",
         event = "BufReadPost",
-        config = function() require "config.gitsigns" end
+        config = function()
+            require "plugin.gitsigns"
+        end
     },
 
     {
@@ -156,7 +174,7 @@ local Plugins = {
             "Isrothy/lualine-diagnostic-message"
         },
         config = function()
-            require "config.lualine"
+            require "plugin.lualine"
         end
     },
 
@@ -164,7 +182,7 @@ local Plugins = {
         "nanozuki/tabby.nvim",
         lazy = false,
         dependencies = 'nvim-tree/nvim-web-devicons',
-        config = function() require "config.tabby" end
+        config = function() require "plugin.tabby" end
     },
 
     --
@@ -181,14 +199,14 @@ local Plugins = {
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline"
         },
-        config = function() require "config.cmp" end
+        config = function() require "plugin.cmp" end
     },
 
     {
         "neovim/nvim-lspconfig",
         lazy = false,
         config = function()
-            require "config.lspconfig"
+            require "plugin.lspconfig"
         end
     },
 
@@ -202,7 +220,7 @@ local Plugins = {
         name = "treesitter",
         lazy = false,
         config = function()
-            require "config.treesitter"
+            require "plugin.treesitter"
         end
     },
 
@@ -240,14 +258,14 @@ local Plugins = {
         "folke/tokyonight.nvim",
         enabled = false,
         lazy = false,
-        config = function() require "config.tokyonight" end
+        config = function() require "plugin.tokyonight" end
     },
 
     {
         "catppuccin/nvim",
         name = "catppuccin",
         lazy = false,
-        config = function() require "config.catppuccin" end
+        config = function() require "plugin.catppuccin" end
     },
 
     --

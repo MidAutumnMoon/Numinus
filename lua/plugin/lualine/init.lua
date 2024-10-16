@@ -1,10 +1,10 @@
 local lualine = require "lualine"
 
-local cpnts = require "config.lualine.components"
+local cpnts = require "plugin.lualine.components"
 local filename = cpnts.filename
 local progress_thru_buffer = cpnts.progress_thru_buffer
 
-local sources = require "config.lualine.sources"
+local sources = require "plugin.lualine.sources"
 
 
 local sections = {

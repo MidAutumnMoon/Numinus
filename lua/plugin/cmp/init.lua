@@ -1,6 +1,6 @@
 local cmp = require "cmp"
 
-local utils = require "config.cmp.utils"
+local utils = require "plugin.cmp.utils"
 
 
 --
