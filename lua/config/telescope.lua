@@ -25,7 +25,7 @@ telescope.setup { defaults = {
 } }
 
 
-local BatchSetKeymaps = require "nus.keys".BatchSetKeymaps
+local BatchSetKeymaps = require "nus".BatchSetKeymaps
 
 BatchSetKeymaps { "n" } {
     ["<Leader>f"] = builtin.find_files,

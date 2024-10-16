@@ -1,26 +1,5 @@
 local M = {}
 
---
--- Setkeys: bind a list of keys
---
-
--- mode & options: see SetkeysBulder
--- keymaps: { key = action } map, see vim.keymap.set()
-local function setkeys( mode, keymaps, options )
-    for key, action in pairs( keymaps ) do
-        vim.keymap.set( mode, key, action, options )
-    end
-end
-
---- @param mode ( string | string[] ) aaa
--- mode: mode in vim.keymap.set()
--- options?: options in vim.keymap.set()
-M.SetkeysBulder = function( mode, options )
-    local options = options or {}
-    return function( keymaps )
-        setkeys( mode, keymaps, options )
-    end
-end
 
 --- Set multiple keymaps at once with a set of common keymap modes
 ---
@@ -41,5 +20,18 @@ M.BatchSetKeymaps = function( mode, options )
     end
     return setter
 end
+
+
+--- A common set of filetypes to ignore
+M.ExcludedFiletypes = {
+    -- No files
+    "",
+    "nofile",
+    -- Vim internal
+    "help",
+    -- Plugins
+    "TelescopePrompt"
+}
+
 
 return M

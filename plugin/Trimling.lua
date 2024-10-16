@@ -4,7 +4,7 @@ local ExcludedName = {
     "all-packages.nix"
 }
 
-local Common = require "nus.common"
+local ExcludedFiletypes = require "nus".ExcludedFiletypes
 
 
 --
@@ -21,7 +21,7 @@ local function buffer_legit( bufnr )
     local options = vim.bo[bufnr]
     local name = basename( buf_get_name( bufnr ) )
     return options.modifiable
-        and not tbl_contains( Common.ExcludedFiletypes, options.ft )
+        and not tbl_contains( ExcludedFiletypes, options.ft )
         and not tbl_contains( ExcludedName, name )
 end
 

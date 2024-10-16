@@ -6,12 +6,10 @@ local setup = autopairs.setup
 local add_rules = autopairs.add_rules
 local get_rule = autopairs.get_rule
 
-local Common = require "nus.common"
-
 
 setup {
     check_ts = true,
-    disable_filetype = Common.ExcludedFiletypes,
+    disable_filetype = require "nus".ExcludedFiletypes,
     map_c_h = true,
     map_c_w = true,
     enable_check_bracket_line = false,

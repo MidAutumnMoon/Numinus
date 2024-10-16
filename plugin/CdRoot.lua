@@ -14,8 +14,7 @@ local RootMarkers = {
 
 }
 
-local Common = require "nus.common"
-local ExcludedFt = Common.ExcludedFiletypes
+local ExcludedFt = require "nus".ExcludedFiletypes
 
 local CdMethod = "tcd"
 
