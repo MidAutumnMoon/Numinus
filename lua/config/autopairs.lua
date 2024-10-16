@@ -6,39 +6,39 @@ local setup = autopairs.setup
 local add_rules = autopairs.add_rules
 local get_rule = autopairs.get_rule
 
-local Common = require 'teapot.common'
+local Common = require "nus.common"
 
 
 setup {
-  check_ts = true,
-  disable_filetype = Common.ExcludedFiletypes,
-  map_c_h = true,
-  map_c_w = true,
-  enable_check_bracket_line = false,
+    check_ts = true,
+    disable_filetype = Common.ExcludedFiletypes,
+    map_c_h = true,
+    map_c_w = true,
+    enable_check_bracket_line = false,
 }
 
 
 -- Remove predefined rules
 
 get_rule( "'" )[1].not_filetypes = {
-  "scheme",
-  "lisp",
-  "racket",
-  "rust",
-  "nix"
+    "scheme",
+    "lisp",
+    "racket",
+    "rust",
+    "nix"
 }
 
 
 -- Common brackets
 
 local Brackets = {
-  { '(', ')' },
-  { '[', ']' },
-  { '{', '}' }
+    { '(', ')' },
+    { '[', ']' },
+    { '{', '}' }
 }
 
 local GluedBrackets = {
-  "()", "[]", "{}"
+    "()", "[]", "{}"
 }
 
 
@@ -46,20 +46,20 @@ local GluedBrackets = {
 -- cursor is directly between two brackets
 add_rules {
 
-  Rule( ' ', ' ' )
+    Rule( ' ', ' ' )
     :with_pair( function( opts )
-      local pair = opts.line:sub( opts.col - 1, opts.col )
-      return vim.tbl_contains( GluedBrackets, pair )
+        local pair = opts.line:sub( opts.col - 1, opts.col )
+        return vim.tbl_contains( GluedBrackets, pair )
     end )
 
 }
 
 for _, pair in pairs( Brackets ) do add_rules {
 
-  Rule( pair[1].." ", " "..pair[2] )
+    Rule( pair[1].." ", " "..pair[2] )
     :with_pair( function() return false end )
     :with_move( function( opts )
-      return opts.prev_char:match( '.%'..pair[2] ) ~= nil
+        return opts.prev_char:match( '.%'..pair[2] ) ~= nil
     end )
     :use_key( pair[2] )
 
@@ -72,9 +72,9 @@ local Puncts = { ":", ",", ";" }
 
 for _, punct in pairs( Puncts ) do add_rules {
 
-  Rule( "", punct )
+    Rule( "", punct )
     :with_move( function(opts)
-      return opts.char == punct
+        return opts.char == punct
     end )
     :with_pair( function() return false end )
     :with_del( function() return false end )

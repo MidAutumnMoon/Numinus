@@ -89,7 +89,9 @@ local Plugins = {
         "ggandor/leap.nvim",
         lazy = false,
         dependencies = { "tpope/vim-repeat" },
-        config = function() require "config.leap" end
+        config = function()
+            require "config.leap"
+        end
     },
 
     {
@@ -105,7 +107,9 @@ local Plugins = {
         "nvim-telescope/telescope.nvim",
         event = { "CursorMoved", "CursorHold" },
         cmd = "Telescope",
-        config = function() require "config.telescope" end
+        config = function()
+            require "config.telescope"
+        end
     },
 
     {

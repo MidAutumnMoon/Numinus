@@ -14,7 +14,7 @@ local RootMarkers = {
 
 }
 
-local Common = require "teapot.common"
+local Common = require "nus.common"
 local ExcludedFt = Common.ExcludedFiletypes
 
 local CdMethod = "tcd"
