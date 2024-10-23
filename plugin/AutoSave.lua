@@ -15,8 +15,8 @@ local function save( context )
         return false
     end
     vim.api.nvim_buf_call( bufnr, function()
-        vim.cmd( "silent wall" )
-        vim.cmd( "silent doautocmd BufWritePost" )
+        vim.cmd.wall { mods = { silent = true } }
+        vim.cmd.doautocmd { "BufWritePost", mods = { silent = true } }
     end )
 end
 
@@ -27,10 +27,6 @@ vim.api.nvim_create_autocmd ( {
     "BufLeave",
 }, {
     pattern = "*",
-    group = vim.api.nvim_create_augroup(
-        "AutoSave",
-        { clear = true }
-    ),
     callback = save,
 } )
 
