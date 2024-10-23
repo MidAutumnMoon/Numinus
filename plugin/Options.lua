@@ -1,7 +1,6 @@
-local Cache = vim.fn.stdpath 'cache'
-local State = vim.fn.stdpath 'state'
+local state_dir = vim.fn.stdpath 'state'
 
-local Options = {
+local options = {
 
   number = true,
   relativenumber = true,
@@ -61,12 +60,12 @@ local Options = {
   incsearch = true,
 
   swapfile = true,
-  directory = State .. "/swap//",
+  directory = state_dir .. "/swap//",
   writebackup = true,
   backup = false,
-  backupdir = State .. "/backup//",
+  backupdir = state_dir .. "/backup//",
   undofile = true,
-  undodir = State .. "/undo//",
+  undodir = state_dir .. "/undo//",
 
   foldmethod = "marker",
   foldlevelstart = 99,
@@ -75,14 +74,9 @@ local Options = {
 
 }
 
-vim.cmd [[
-    filetype plugin indent on
-]]
-
-for option, value in pairs( Options ) do
+for option, value in pairs( options ) do
   vim.opt[option] = value
 end
-
 
 vim.opt.shortmess:append("IF")
 vim.opt.formatoptions:append("1,j")
