@@ -1,23 +1,23 @@
 vim.filetype.add {
 
-  extension = {
-    service = "systemd",
-    target = "systemd",
-    path = "systemd",
-    timer = "systemd",
+    extension = {
+        service = "systemd",
+        target = "systemd",
+        path = "systemd",
+        timer = "systemd",
 
-    opml = "xml",
-    mobileconfig = "xml",
+        opml = "xml",
+        mobileconfig = "xml",
 
-    hlsl = "hlsl",
+        mdx = "markdown",
 
-    mdx = "markdown",
-  },
+        pro = "prolog",
+    },
 
-  filename = {
-    [".envrc"] = "bash",
-    ["flake.lock"] = "json",
-    ["justfile"] = "just"
-  }
+    filename = {
+        [".envrc"] = "bash",
+        ["flake.lock"] = "json",
+        ["justfile"] = "just"
+    }
 
 }

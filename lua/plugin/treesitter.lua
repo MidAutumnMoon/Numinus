@@ -28,6 +28,7 @@ require "nvim-treesitter.configs" .setup {
         "hlsl",
         "glsl",
         "terraform",
+        "prolog",
     },
 
     highlight = {
