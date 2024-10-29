@@ -13,7 +13,7 @@ lsp_setup( lspconfig.nixd, { } )
 lsp_setup( lspconfig.rust_analyzer, { } )
 
 lsp_setup( lspconfig.rubocop, {
-  single_file_support = true
+    single_file_support = true
 } )
 
 -- lsp_setup( lspconfig.ruby_lsp, {
@@ -21,28 +21,28 @@ lsp_setup( lspconfig.rubocop, {
 -- } )
 
 lsp_setup( lspconfig.denols, {
-  single_file_support = true
+    single_file_support = true
 } )
 
 lsp_setup( lspconfig.lua_ls, {
-  settings = { Lua = {
-    runtime = { version = "LuaJIT" },
-    workspace = {
-      checkThirdParty = false,
-      -- library = { vim.env.VIMRUNTIME }
-      library = vim.api.nvim_get_runtime_file( "", true )
-    }
-  } }
+    settings = { Lua = {
+        runtime = { version = "LuaJIT" },
+        workspace = {
+            checkThirdParty = false,
+            -- library = { vim.env.VIMRUNTIME }
+            library = vim.api.nvim_get_runtime_file( "", true )
+        }
+    } }
 } )
 
 
 vim.g.markdown_fenced_languages = {
-  "ts=typescript"
+    "ts=typescript"
 }
 
 vim.diagnostic.config {
-  update_in_insert = true,
-  underline = true,
-  virtual_text = false,
-  severity_sort = true,
+    update_in_insert = true,
+    underline = true,
+    virtual_text = false,
+    severity_sort = true,
 }

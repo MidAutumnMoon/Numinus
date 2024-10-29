@@ -18,13 +18,13 @@ require "nvim-treesitter.configs" .setup {
         "css",
         "html",
         "markdown",
+        "zig",
 
         "json",
         "yaml",
         "toml",
         "ninja",
         "sql",
-        "just",
         "hlsl",
         "glsl",
         "terraform",
@@ -40,15 +40,19 @@ require "nvim-treesitter.configs" .setup {
     },
 
     indent = {
-        enable = false,
+        enable = true,
         disable = {
             "ruby",
             "nix",
-            "rust"
+            "rust",
         },
     },
 
     matchup = {
+        enable = true
+    },
+
+    endwise = {
         enable = true
     },
 

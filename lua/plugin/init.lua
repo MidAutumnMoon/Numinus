@@ -141,6 +141,12 @@ local Plugins = {
         end
     },
 
+    {
+        "andymass/vim-matchup",
+        after = "nvim-treesitter",
+        lazy = false,
+    },
+
     --
     -- QoL
     --
@@ -225,15 +231,19 @@ local Plugins = {
     },
 
     {
-        "nvim-treesitter/nvim-treesitter-textobjects"
-    },
-
-    {
         "nvim-treesitter/nvim-treesitter-context",
         event = { 'CursorMoved' },
         opts = {
             max_lines = 3,
         },
+    },
+
+    {
+        -- Wait for https://github.com/RRethy/nvim-treesitter-endwise/pull/42 to be merged
+        -- "RRethy/nvim-treesitter-endwise",
+        "metiulekm/nvim-treesitter-endwise",
+        after = "nvim-treesitter",
+        lazy = false,
     },
 
     --
