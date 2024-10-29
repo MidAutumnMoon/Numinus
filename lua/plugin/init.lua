@@ -77,8 +77,9 @@ local Plugins = {
 
     {
         "windwp/nvim-ts-autotag",
-        opts = {},
+        after = "nvim-treesitter",
         lazy = false,
+        opts = {},
     },
 
     {
