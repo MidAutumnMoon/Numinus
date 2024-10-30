@@ -12,9 +12,7 @@ telescope.setup { defaults = {
         }
     },
 
-    cache_picker = {
-        num_pickers = -1
-    },
+    cache_picker = false,
 
     preview = {
         filesize_limit = 2,
@@ -28,7 +26,16 @@ telescope.setup { defaults = {
 local BatchSetKeymaps = require "nus".BatchSetKeymaps
 
 BatchSetKeymaps { "n" } {
-    ["<Leader>f"] = builtin.find_files,
+    ["<Leader>f"] = function()
+        local cmd = {
+            "fd",
+            "--type=file",
+            "--color=never",
+            "--hidden",
+            "--exclude=.git/",
+        }
+        builtin.find_files { find_command = cmd }
+    end,
     ["<Leader>F"] = builtin.oldfiles,
     ["<LocalLeader>ft"] = builtin.filetypes,
     ["<Leader><Enter>"] = builtin.buffers,

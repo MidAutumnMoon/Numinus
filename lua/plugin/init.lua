@@ -120,7 +120,7 @@ local Plugins = {
 
     {
         "nvim-telescope/telescope.nvim",
-        event = { "CursorMoved", "CursorHold" },
+        keys = { "<Leader>" },
         cmd = "Telescope",
         config = function()
             require "plugin.telescope"
