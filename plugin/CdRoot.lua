@@ -1,4 +1,16 @@
-local RootMarkers = {
+-- Automatically switch cwd to the root of project.
+--
+-- Note: not using vim.fs.root() because this implementation
+-- is theorically more performant.
+
+
+--- @type unknown
+local uv = vim.uv
+
+
+local M = {}
+
+M.markers = {
 
     "README",
     "README.md",
@@ -10,69 +22,58 @@ local RootMarkers = {
 
     "Cargo.toml",
 
+    -- Manually mark the root
     ".root",
 
 }
 
-local ExcludedFt = require "nus".ExcludedFiletypes
+M.config = {
+    --- How many entries fs_opendir will read.
+    OpendirEntries = 2048,
+    CdMethod = "tcd",
+    ExcludedFiletypes = require "nus".ExcludedFiletypes,
+}
 
-local CdMethod = "tcd"
-
-
---
--- Implementations
---
-
-local create_autocmd = vim.api.nvim_create_autocmd
-local buf_get_name = vim.api.nvim_buf_get_name
-
-local parents = vim.fs.parents
-local fs_stat = vim.uv.fs_stat
-local path_join = require 'neo-tree.utils' .path_join
-
-
---- A buffer is legit when it's not a special
---- buffer and its filetype is not in ExcludedFt list.
-local function buffer_legit( bufnr )
-    local buffer = vim.bo[bufnr]
-    local buffer_normal = buffer.buftype == ""
-    local buffer_allowed = not vim.tbl_contains( ExcludedFt, buffer.ft )
-    return buffer_normal and buffer_allowed
+function M.validate_buffer( bufnr )
+    local bo = vim.bo[bufnr]
+    return (
+        bo.buftype == "" -- normal buffers
+        and ( not vim.tbl_contains( M.config.ExcludedFiletypes, bo.ft ) )
+    )
 end
 
+--- Check if `folder` contains one of the RootMarkers.
+---
+--- Notice: only names are checked, meaning no difference bewteen
+--- files and dirs.
+---
+--- @param dir string
+--- @return boolean
+function M.look_for_marker( dir )
+    local entries =
+        uv.fs_opendir( dir, nil, M.config.OpendirEntries )
+        :readdir()
+    return vim.iter( entries )
+        :any( function( et )
+            return vim.tbl_contains( M.markers, et.name )
+        end )
+end
 
--- Check if $fold contains one of the RootMarkers.
--- Filetype of markers are not checked.
-local function contain_marker( folder )
-    local state = fs_stat( folder )
-    if state == nil or state.type ~= "directory" then
+function M.callback( opts )
+    if not M.validate_buffer( opts.buf ) then
         return false
     end
-    for _, marker in pairs( RootMarkers ) do
-        if fs_stat( path_join( folder, marker ) ) ~= nil then
-            return true
-        end
+
+    local path = vim.api.nvim_buf_get_name( opts.buf )
+
+    local marker_dir = vim.iter( vim.fs.parents( path ) )
+        :find( M.look_for_marker )
+
+    if marker_dir then
+        vim.cmd[M.config.CdMethod]( marker_dir )
     end
-    -- end slops are just ugly
 end
 
+vim.api.nvim_create_autocmd( "BufEnter", { callback = M.callback } )
 
--- Iterate the parents of current buffer
--- and cd to the one which contains a root marker.
-local function Callback( callback_opts )
-    local bufnr = callback_opts.buf
-    if not buffer_legit( bufnr ) then
-        return false
-    end
-    for parent in parents( buf_get_name( bufnr ) ) do
-        if contain_marker( parent ) then
-            vim.cmd( CdMethod .. " " .. parent )
-            -- callback can't return true as
-            -- it removes the whole autocmd :(
-            return false
-        end
-    end
-    -- end end slops
-end
-
-create_autocmd ( "BufEnter", { callback = Callback } )
+vim.o.autochdir = false

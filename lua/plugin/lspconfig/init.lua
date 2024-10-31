@@ -26,10 +26,14 @@ lsp_setup( lspconfig.denols, {
 
 lsp_setup( lspconfig.lua_ls, {
     settings = { Lua = {
-        runtime = { version = "LuaJIT" },
+        runtime = {
+            version = "LuaJIT",
+            pathStrict = false,
+            path = { "?.lua", "?/init.lua", "lua/?.lua", "lua/?/init.lua" },
+        },
         workspace = {
             checkThirdParty = false,
-            -- library = { vim.env.VIMRUNTIME }
+            maxPreload = 10 * 1000 * 1000,
             library = vim.api.nvim_get_runtime_file( "", true )
         }
     } }
