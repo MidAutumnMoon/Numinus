@@ -2,80 +2,83 @@ local state_dir = vim.fn.stdpath 'state'
 
 local options = {
 
-  number = true,
-  relativenumber = true,
-  mouse = 'n',
+    number = true,
+    relativenumber = true,
+    mouse = "n",
 
-  lazyredraw = true,
-  timeoutlen = 300,
-  updatetime = 200,
-  regexpengine = 2,
+    lazyredraw = true,
+    timeoutlen = 300,
+    updatetime = 500,
 
-  laststatus = 3,
+    laststatus = 3,
 
-  autoread = true,
-  autowrite = true,
-  autowriteall = true,
+    autoread = true,
+    autowrite = true,
+    autowriteall = true,
 
-  scrolloff = 10,
+    scrolloff = 10,
 
-  startofline = true,
-  joinspaces = false,
-  virtualedit = "block",
-  whichwrap = "b,s,<,>,[,]",
+    startofline = true,
+    joinspaces = false,
+    virtualedit = "block",
+    whichwrap = "b,s,<,>,[,]",
 
-  tabstop = 4,
-  softtabstop = 4,
-  shiftwidth = 0,
-  smarttab = true,
-  expandtab = true,
-  autoindent = true,
+    tabstop = 4,
+    softtabstop = 4,
+    shiftwidth = 0,
+    smarttab = true,
+    expandtab = true,
+    autoindent = true,
 
-  completeopt = "menuone,preview,longest",
-  diffopt = "filler,vertical",
+    completeopt = "menuone,preview,longest",
+    diffopt = "filler,vertical",
 
-  showbreak = "↳ ",
-  breakindent = false,
-  breakindentopt = "sbr",
+    showbreak = "↳ ",
+    breakindent = false,
+    breakindentopt = "sbr",
 
-  synmaxcol = 200,
-  termguicolors = true,
-  cursorline = true,
-  visualbell = true,
-  fillchars = "eob: ,vert: ",
-  signcolumn = "yes:1",
-  nrformats = "hex,bin,unsigned",
+    synmaxcol = 600,
+    termguicolors = true,
+    cursorline = true,
+    visualbell = true,
+    fillchars = { eob = " " },
+    signcolumn = "yes:1",
+    nrformats = "hex,bin,unsigned",
 
-  list = true,
-  listchars = "tab:▷ ,trail:·,extends:◣",
+    list = true,
+    listchars = {
+        tab = "▷ ",
+        trail = "·",
+        extends = "◣",
+    },
 
-  showcmd = true,
+    showcmd = true,
 
-  wildmenu = true,
-  wildmode = "full:lastused",
+    wildmenu = true,
+    wildmode = "full:lastused",
 
-  ignorecase = true,
-  smartcase = true,
-  hlsearch = true,
-  incsearch = true,
+    ignorecase = true,
+    smartcase = true,
+    hlsearch = true,
+    incsearch = true,
 
-  swapfile = true,
-  directory = state_dir .. "/swap//",
-  writebackup = true,
-  backup = false,
-  backupdir = state_dir .. "/backup//",
-  undofile = true,
-  undodir = state_dir .. "/undo//",
+    swapfile = true,
+    directory = state_dir .. "/swap//",
+    writebackup = true,
+    backup = false,
+    backupdir = state_dir .. "/backup//",
+    undofile = true,
+    undodir = state_dir .. "/undo//",
 
-  foldmethod = "marker",
-  foldlevelstart = 99,
+    foldmethod = "marker",
+    foldlevelstart = 99,
 
-  shell = "/bin/sh"
+    shell = "/bin/sh"
 
 }
 
 for option, value in pairs( options ) do
-  vim.opt[option] = value
+    vim.opt[option] = value
 end
 
 vim.opt.shortmess:append("IF")
