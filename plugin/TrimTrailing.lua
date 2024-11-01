@@ -42,7 +42,7 @@ vim.keymap.set(
 vim.api.nvim_create_autocmd( {
     "ExitPre",
     "BufLeave",
-    "BufReadPost"
+    "WinLeave",
 }, {
     pattern = "*",
     callback = function( opts )
