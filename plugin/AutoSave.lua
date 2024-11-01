@@ -1,20 +1,25 @@
-vim.opt.autowriteall = true
+vim.o.autowriteall = true
 
---- @param bufnr number
+local M = {}
+
+--- @param buf number
 --- @return boolean
-local function buffer_writable( bufnr )
-    local bopt = vim.bo[bufnr]
-    return ( not bopt.readonly )
-        and bopt.modifiable
-        and vim.api.nvim_buf_get_name( bufnr ) ~= ""
+function M.validate_buffer( buf )
+    local bo = vim.bo[buf]
+    return (
+        bo.modified
+        and not bo.readonly
+        and bo.modifiable
+        and vim.api.nvim_buf_get_name( buf ) ~= ""
+    )
 end
 
-local function save( context )
-    local bufnr = context.buf
-    if not buffer_writable( bufnr ) then
-        return false
+function M.callback( opt )
+    local buf = opt.buf
+    if not M.validate_buffer( buf ) then
+        return
     end
-    vim.api.nvim_buf_call( bufnr, function()
+    vim.api.nvim_buf_call( buf, function()
         vim.cmd.wall { mods = { silent = true } }
         vim.cmd.doautocmd { "BufWritePost", mods = { silent = true } }
     end )
@@ -27,6 +32,6 @@ vim.api.nvim_create_autocmd ( {
     "BufLeave",
 }, {
     pattern = "*",
-    callback = save,
+    callback = M.callback,
 } )
 
