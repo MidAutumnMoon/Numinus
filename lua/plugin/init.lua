@@ -216,7 +216,12 @@ local Plugins = {
             "rafamadriz/friendly-snippets"
         },
         config = function()
-            require( "luasnip.loaders.from_vscode" ).lazy_load()
+            local lazy_load = require( "luasnip.loaders.from_vscode" ).lazy_load
+            lazy_load { }
+            lazy_load {
+                paths = "./snippets",
+                default_priority = 2000,
+            }
         end
     },
 

@@ -44,10 +44,10 @@ cmp.setup {
         end ),
 
         ["<Tab>"] = cmp.mapping( function( fallback )
-            if cmp.visible() and not luasnip.in_snippet() then
-                cmp.select_next_item()
-            elseif luasnip.jumpable( 1 ) then
+            if luasnip.locally_jumpable( 1 ) then
                 luasnip.jump( 1 )
+            elseif cmp.visible() then
+                cmp.select_next_item()
             else
                 fallback()
             end
@@ -68,7 +68,7 @@ cmp.setup {
         end ),
     },
 
-    preselect = cmp.PreselectMode.None,
+    preselect = cmp.PreselectMode.Item,
 
     sorting = {
         comparators = { function(...) cmp_buffer:compare_locality(...) end },
