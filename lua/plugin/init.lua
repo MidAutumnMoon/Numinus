@@ -22,7 +22,6 @@ local Plugins = {
 
     {
         "tpope/vim-repeat",
-        lazy = false,
     },
 
     {
@@ -32,7 +31,6 @@ local Plugins = {
 
     {
         "wellle/targets.vim",
-        lazy = false,
     },
 
     {
@@ -63,7 +61,6 @@ local Plugins = {
 
     {
         "echasnovski/mini.move",
-        lazy = false,
         opts = {},
     },
 
@@ -78,7 +75,6 @@ local Plugins = {
     {
         "windwp/nvim-ts-autotag",
         after = "nvim-treesitter",
-        lazy = false,
         opts = {},
     },
 
@@ -102,7 +98,6 @@ local Plugins = {
 
     {
         "ggandor/leap.nvim",
-        lazy = false,
         dependencies = { "tpope/vim-repeat" },
         config = function()
             require "plugin.leap"
@@ -145,7 +140,6 @@ local Plugins = {
     {
         "andymass/vim-matchup",
         after = "nvim-treesitter",
-        lazy = false,
     },
 
     --
@@ -154,7 +148,6 @@ local Plugins = {
 
     {
         "tpope/vim-eunuch",
-        lazy = false,
     },
 
     {
@@ -175,7 +168,6 @@ local Plugins = {
 
     {
         "nvim-lualine/lualine.nvim",
-        lazy = false,
         dependencies = {
             "nvim-tree/nvim-web-devicons",
             "Isrothy/lualine-diagnostic-message"
@@ -187,7 +179,6 @@ local Plugins = {
 
     {
         "nanozuki/tabby.nvim",
-        lazy = false,
         dependencies = 'nvim-tree/nvim-web-devicons',
         config = function() require "plugin.tabby" end
     },
@@ -198,22 +189,34 @@ local Plugins = {
 
     {
         "hrsh7th/nvim-cmp",
-        event = { "InsertEnter", "BufReadPost" },
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-nvim-lsp-signature-help",
             "hrsh7th/cmp-path",
-            "hrsh7th/cmp-cmdline"
+            "hrsh7th/cmp-cmdline",
+            "saadparwaiz1/cmp_luasnip",
         },
-        config = function() require "plugin.cmp" end
+        config = function()
+            require "plugin.cmp"
+        end
     },
 
     {
         "neovim/nvim-lspconfig",
-        lazy = false,
         config = function()
             require "plugin.lspconfig"
+        end
+    },
+
+    {
+        "L3MON4D3/LuaSnip",
+        build = "make install_jsregexp",
+        dependencies = {
+            "rafamadriz/friendly-snippets"
+        },
+        config = function()
+            require( "luasnip.loaders.from_vscode" ).lazy_load()
         end
     },
 
@@ -225,7 +228,6 @@ local Plugins = {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         name = "treesitter",
-        lazy = false,
         config = function()
             require "plugin.treesitter"
         end
@@ -244,7 +246,6 @@ local Plugins = {
         -- "RRethy/nvim-treesitter-endwise",
         "metiulekm/nvim-treesitter-endwise",
         after = "nvim-treesitter",
-        lazy = false,
     },
 
     --
@@ -268,14 +269,12 @@ local Plugins = {
     {
         "folke/tokyonight.nvim",
         enabled = false,
-        lazy = false,
         config = function() require "plugin.tokyonight" end
     },
 
     {
         "catppuccin/nvim",
         name = "catppuccin",
-        lazy = false,
         config = function() require "plugin.catppuccin" end
     },
 
@@ -290,8 +289,6 @@ local Plugins = {
 } -- End Plugins
 
 local Config = {
-
-    defaults = { lazy = true },
 
     checker = { enabled = false },
 

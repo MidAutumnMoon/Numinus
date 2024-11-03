@@ -53,7 +53,7 @@ function M.look_for_marker( dir )
     local entries =
         uv.fs_opendir( dir, nil, M.config.OpendirEntries )
         :readdir()
-    return vim.iter( entries )
+    return vim.iter( entries or {} )
         :any( function( et )
             return vim.tbl_contains( M.markers, et.name )
         end )
