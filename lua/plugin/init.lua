@@ -247,6 +247,11 @@ local Plugins = {
     },
 
     {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        after = "nvim-treesitter",
+    },
+
+    {
         -- Wait for https://github.com/RRethy/nvim-treesitter-endwise/pull/42 to be merged
         -- "RRethy/nvim-treesitter-endwise",
         "metiulekm/nvim-treesitter-endwise",

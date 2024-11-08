@@ -22,24 +22,25 @@ cmp.setup {
         {
             { name = "nvim_lsp" },
             { name = "nvim_lsp_signature_help" },
-            { name = "path" },
             { name = "luasnip" },
-        },
-        {
-            sources.buffer
+            sources.buffer,
+            { name = "path" },
         }
     ),
 
     mapping = {
         ['<CR>'] = cmp.mapping( function(fallback)
             if cmp.visible() then
-                if luasnip.expandable() then
+                local selected = cmp.get_selected_entry()
+                if selected == nil then
+                    return fallback()
+                elseif selected.name == "luasnip" and luasnip.expandable() then
                     luasnip.expand()
                 else
                     cmp.confirm { select = true }
                 end
             else
-                fallback()
+                return fallback()
             end
         end ),
 
@@ -63,8 +64,12 @@ cmp.setup {
             end
         end, { "i", "s" } ),
 
-        ["<C-e>"] = cmp.mapping( function(fallback)
-            cmp.mapping.abort()
+        ["<C-e>"] = cmp.mapping( function( fallback )
+            if cmp.visible() then
+                cmp.mapping.abort()
+            else
+                fallback()
+            end
         end ),
     },
 
@@ -72,6 +77,10 @@ cmp.setup {
 
     sorting = {
         comparators = { function(...) cmp_buffer:compare_locality(...) end },
+    },
+
+    matching = {
+        disallow_fullfuzzy_matching = true,
     },
 
     snippet = {
@@ -85,8 +94,8 @@ cmp.setup {
 cmp.setup.cmdline( ":", {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
-        { name = "path" },
         { name = "cmdline" },
+        { name = "path" },
     }
 } )
 
