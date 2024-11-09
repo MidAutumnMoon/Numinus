@@ -12,8 +12,6 @@ telescope.setup { defaults = {
         }
     },
 
-    cache_picker = false,
-
     preview = {
         filesize_limit = 2,
         timeout = 120,
@@ -45,7 +43,11 @@ BatchSetKeymaps { "n" } {
     ["<Leader><Enter>"] = builtin.buffers,
 
     -- l : Lines
-    ["<Leader>l"] = builtin.current_buffer_fuzzy_find,
+    ["<Leader>l"] = function ()
+        builtin.current_buffer_fuzzy_find {
+            skip_empty_lines = true,
+        }
+    end,
 
     -- d : Diagnostics
     ["<Leader>d"] = builtin.diagnostics,
