@@ -26,6 +26,7 @@ telescope.setup { defaults = {
 local BatchSetKeymaps = require "nus".BatchSetKeymaps
 
 BatchSetKeymaps { "n" } {
+    -- f : find
     ["<Leader>f"] = function()
         local cmd = {
             "fd",
@@ -36,9 +37,19 @@ BatchSetKeymaps { "n" } {
         }
         builtin.find_files { find_command = cmd }
     end,
+
+    -- F : old "F"ile
     ["<Leader>F"] = builtin.oldfiles,
-    ["<LocalLeader>ft"] = builtin.filetypes,
+
+    -- <Enter> : Similar to <Alt-Enter>
     ["<Leader><Enter>"] = builtin.buffers,
+
+    -- l : Lines
     ["<Leader>l"] = builtin.current_buffer_fuzzy_find,
+
+    -- d : Diagnostics
     ["<Leader>d"] = builtin.diagnostics,
+
+    -- s : Symbols
+    ["<Leader>s"] = builtin.treesitter,
 }
