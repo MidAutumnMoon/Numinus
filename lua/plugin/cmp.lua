@@ -15,7 +15,6 @@ sources.buffer = {
     }
 }
 
-
 cmp.setup {
 
     sources = cmp.config.sources(
@@ -74,10 +73,6 @@ cmp.setup {
     },
 
     preselect = cmp.PreselectMode.Item,
-
-    sorting = {
-        comparators = { function(...) cmp_buffer:compare_locality(...) end },
-    },
 
     matching = {
         disallow_fullfuzzy_matching = true,
