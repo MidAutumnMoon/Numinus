@@ -272,6 +272,10 @@ local Plugins = {
         ft = { "kdl" }
     },
 
+    {
+        "bellinitte/uxntal.vim"
+    },
+
     --
     -- Colorschemes
     --
