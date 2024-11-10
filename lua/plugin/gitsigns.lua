@@ -1,21 +1,19 @@
-require 'gitsigns' .setup {
+require 'gitsigns'.setup {
 
-  signs = {
+    signs = {
 
-    add = {
-      text = "+"
+        add = {
+            text = "+"
+        },
+
+        change = {
+            text = '~'
+        },
+
+        delete = {
+            text = '-'
+        }
+
     },
-
-    change = {
-      text = '!'
-    },
-
-    delete = {
-      text = '_'
-    }
-
-  },
-
-  word_diff = true
 
 }

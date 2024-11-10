@@ -160,7 +160,6 @@ local Plugins = {
     {
         "lewis6991/gitsigns.nvim",
         name = "gitsigns",
-        event = "BufReadPost",
         config = function()
             require "plugin.gitsigns"
         end
@@ -240,7 +239,6 @@ local Plugins = {
 
     {
         "nvim-treesitter/nvim-treesitter-context",
-        event = { 'CursorMoved' },
         opts = {
             max_lines = 3,
         },
@@ -280,16 +278,24 @@ local Plugins = {
     -- Colorschemes
     --
 
-    {
-        "folke/tokyonight.nvim",
-        enabled = false,
-        config = function() require "plugin.tokyonight" end
-    },
+    -- {
+    --     "folke/tokyonight.nvim",
+    --     enabled = false,
+    --     config = function() require "plugin.tokyonight" end
+    -- },
+
+    -- {
+    --     "catppuccin/nvim",
+    --     name = "catppuccin",
+    --     config = function() require "plugin.catppuccin" end
+    -- },
 
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        config = function() require "plugin.catppuccin" end
+        "rebelot/kanagawa.nvim",
+        config = function ()
+            require "kanagawa".setup { }
+            vim.cmd "colorscheme kanagawa-wave"
+        end
     },
 
     --

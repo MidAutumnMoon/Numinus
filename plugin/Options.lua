@@ -41,7 +41,10 @@ local options = {
     termguicolors = true,
     cursorline = true,
     visualbell = true,
-    fillchars = { eob = " " },
+    fillchars = {
+        eob = " ",
+        -- vert = " ",
+    },
     signcolumn = "yes:1",
     nrformats = "hex,bin,unsigned",
 
