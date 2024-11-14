@@ -72,7 +72,7 @@ cmp.setup {
         end ),
     },
 
-    preselect = cmp.PreselectMode.Item,
+    preselect = cmp.PreselectMode.None,
 
     matching = {
         disallow_fullfuzzy_matching = true,
