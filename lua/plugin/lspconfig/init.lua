@@ -39,6 +39,10 @@ lsp_setup( lspconfig.lua_ls, {
     } }
 } )
 
+lsp_setup( lspconfig.tinymist, {
+    single_file_support = true,
+} )
+
 
 vim.g.markdown_fenced_languages = {
     "ts=typescript"
