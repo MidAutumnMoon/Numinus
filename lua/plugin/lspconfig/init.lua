@@ -8,7 +8,9 @@ local lsp_setup = lsp_utils.lsp_setup
 -- Setups
 --
 
-lsp_setup( lspconfig.nixd, { } )
+lsp_setup( lspconfig.nixd, {
+    cmd = { "nixd", "--semantic-tokens=false" }
+} )
 
 lsp_setup( lspconfig.rust_analyzer, { } )
 
