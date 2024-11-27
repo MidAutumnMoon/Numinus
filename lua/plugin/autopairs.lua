@@ -9,8 +9,6 @@ local get_rule = autopairs.get_rule
 
 setup {
     check_ts = true,
-    disable_filetype = require "nus".ExcludedFiletypes,
-    map_c_h = true,
     map_c_w = true,
     enable_check_bracket_line = false,
 }

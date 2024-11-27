@@ -56,7 +56,9 @@ local Plugins = {
         "echasnovski/mini.surround",
         event = { 'CursorMoved', 'CursorHold' },
         keys = { "ys", "cs", "ds" },
-        opts = {}
+        opts = {
+            n_lines = 40,
+        }
     },
 
     {
