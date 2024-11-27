@@ -184,6 +184,12 @@ local Plugins = {
         config = function() require "plugin.tabby" end
     },
 
+    {
+        "HiPhish/rainbow-delimiters.nvim",
+        main = "rainbow-delimiters.setup",
+        opts = {},
+    },
+
     --
     -- Cmp & LSP
     --
