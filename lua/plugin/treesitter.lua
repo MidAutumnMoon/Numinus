@@ -19,6 +19,7 @@ require "nvim-treesitter.configs" .setup {
         "html",
         "markdown",
         "zig",
+        "perl",
 
         "json",
         "yaml",
@@ -37,7 +38,13 @@ require "nvim-treesitter.configs" .setup {
     },
 
     incremental_selection = {
-        enable = true
+        enable = true,
+        keymaps = {
+            init_selection = "<C-space>",
+            node_incremental = "<C-space>",
+            scope_incremental = true,
+            node_decremental = "<bs>",
+        },
     },
 
     indent = {

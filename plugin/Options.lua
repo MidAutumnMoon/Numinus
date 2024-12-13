@@ -76,7 +76,9 @@ local options = {
     foldmethod = "marker",
     foldlevelstart = 99,
 
-    shell = "/bin/sh"
+    shell = "/bin/sh",
+
+    smoothscroll = true,
 
 }
 

@@ -64,9 +64,6 @@ xnoremap <silent> <C-l> >gv
 xnoremap < <gv
 xnoremap > >gv
 
-" more nature way to switch between files.
-nnoremap <A-CR> <C-^>
-
 " scroll the viewport faster
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
